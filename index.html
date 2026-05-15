@@ -2,636 +2,567 @@
 <html lang="ku" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>🌙 نووری قورئان — فێربوون بۆ منداڵان</title>
-<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;600;700&family=Amiri+Quran&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🌙 نووری قورئان</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&family=Amiri+Quran&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 :root{
-  --g1:#0D6E5E;--g2:#119775;--g3:#1DBF96;--g4:#e8faf5;
-  --gold:#F5C518;--gold2:#c49a00;
-  --coral:#FF6B6B;--orange:#FF9500;
-  --sky:#00C9E0;--violet:#9B5DE5;--pink:#F15BB5;
-  --cream:#FFF9F0;--cream2:#FFF3DC;
-  --navy:#0A1628;--navy2:#142038;
-  --text:#1A2E44;--muted:#7a93a8;
+  --green:#119775;
+  --green2:#1DBF96;
+  --dark:#0A1628;
+  --gold:#F5C518;
   --white:#fff;
-  --r:.75rem;--rr:1.25rem;--rrr:2rem;
-  --sh:0 4px 20px rgba(0,0,0,.11);
-  --sh2:0 8px 40px rgba(0,0,0,.17);
+  --bg:#FFF9F0;
 }
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-body{font-family:'Tajawal',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;direction:rtl;overflow-x:hidden;padding-bottom:72px;}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 0L80 40L40 80L0 40Z' fill='none' stroke='%231DBF96' stroke-width='.5' opacity='.12'/%3E%3Ccircle cx='40' cy='40' r='11' fill='none' stroke='%23F5C518' stroke-width='.4' opacity='.1'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
 
-/* ─── TOPBAR ─── */
-#topbar{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(135deg,var(--navy),var(--navy2));padding:8px 14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 20px rgba(0,0,0,.3);}
-.logo{font-family:'Reem Kufi',sans-serif;font-size:1.2rem;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:6px;}
-#stars-display{display:flex;align-items:center;gap:5px;background:rgba(245,197,24,.13);border:1.5px solid rgba(245,197,24,.35);border-radius:50px;padding:4px 11px;}
-#stars-count{font-family:'Reem Kufi',sans-serif;font-size:.95rem;font-weight:700;color:var(--gold);}
-
-/* ─── BOTTOM NAV ─── */
-#bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--white);border-top:1px solid rgba(0,0,0,.07);display:grid;grid-template-columns:repeat(5,1fr);box-shadow:0 -3px 20px rgba(0,0,0,.09);}
-.nav-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:7px 2px;cursor:pointer;border:none;background:transparent;}
-.nav-icon{font-size:1.3rem;}
-.nav-label{font-size:.7rem;font-weight:700;color:var(--muted);letter-spacing:.01em;}
-.nav-btn.active .nav-label{color:var(--g1);}
-.nav-btn.active .nav-icon{transform:scale(1.13);}
-.nav-btn:active{transform:scale(.9);}
-
-/* ─── PAGES ─── */
-.page{display:none;padding:62px 12px 10px;position:relative;z-index:1;min-height:100vh;animation:fadeIn .25s ease;}
-.page.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
-
-.section-title{font-family:'Reem Kufi',sans-serif;font-size:1.2rem;font-weight:700;color:var(--g1);margin:8px 0 14px;display:flex;align-items:center;gap:7px;}
-.section-title::before{content:'';width:4px;height:20px;background:linear-gradient(to bottom,var(--g3),var(--g1));border-radius:4px;flex-shrink:0;}
-
-/* ─── HOME ─── */
-#page-home{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 55%,#0C3954 100%);padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
-.home-moon{font-size:5.5rem;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 0 28px rgba(245,197,24,.5));margin-top:72px;}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
-.home-title{font-family:'Reem Kufi',sans-serif;font-size:2.3rem;font-weight:700;color:var(--gold);text-align:center;margin:14px 0 4px;text-shadow:0 0 40px rgba(245,197,24,.35);}
-.home-sub{font-size:.95rem;color:rgba(255,255,255,.65);text-align:center;margin-bottom:26px;}
-.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:360px;padding:0 14px;margin-bottom:30px;}
-.hcard{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.14);border-radius:var(--rr);padding:18px 10px;text-align:center;cursor:pointer;transition:transform .2s,background .2s;}
-.hcard:active,.hcard:hover{transform:scale(1.04);background:rgba(255,255,255,.15);border-color:rgba(245,197,24,.45);}
-.hcard .hi{font-size:2.2rem;margin-bottom:6px;}
-.hcard .hl{font-family:'Reem Kufi',sans-serif;font-size:.88rem;font-weight:700;color:var(--white);}
-.hcard .hc{font-size:.7rem;color:rgba(255,255,255,.45);margin-top:2px;}
-
-/* ─── LETTER CARDS ─── */
-.letters-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
-@media(min-width:480px){.letters-grid{grid-template-columns:repeat(5,1fr);}}
-.letter-card{border-radius:var(--rr);padding:10px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform .18s;position:relative;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.11);aspect-ratio:1/1.15;}
-.letter-card:active{transform:scale(.91);}
-.lc-ar{font-family:'Reem Kufi','Amiri Quran',serif;font-size:2.2rem;font-weight:700;color:var(--white);line-height:1;}
-.lc-name{font-size:.75rem;font-weight:700;color:var(--white);font-family:'Reem Kufi',sans-serif;margin-top:4px;}
-
-/* ─── LETTER MODAL ─── */
-#letter-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);padding:18px;}
-#letter-modal.hidden{display:none;}
-.modal-card{background:var(--white);border-radius:24px;padding:24px 20px;width:100%;max-width:360px;text-align:center;}
-.modal-letter{font-family:'Reem Kufi','Amiri Quran',serif;font-size:5rem;font-weight:700;line-height:1;margin-bottom:4px;color:var(--g1);}
-.modal-name{font-family:'Reem Kufi',sans-serif;font-size:1.35rem;font-weight:700;color:var(--navy);}
-.modal-ku{font-size:.9rem;color:var(--muted);margin-bottom:10px;}
-.modal-btns{display:flex;gap:9px;margin-top:12px;}
-.btn-m{flex:1;padding:11px;border:none;border-radius:11px;font-family:'Tajawal',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;}
-.btn-primary{background:var(--g2);color:var(--white);}
-.btn-secondary{background:var(--cream2);color:var(--navy);}
-
-/* ─── LEARN PAGE SUB-TABS ─── */
-.sub-tabs{display:flex;gap:7px;margin-bottom:14px;}
-.sub-tab{flex:1;padding:9px;border-radius:50px;border:2px solid var(--g3);background:transparent;font-family:'Reem Kufi',sans-serif;font-size:.85rem;font-weight:600;color:var(--g1);cursor:pointer;}
-.sub-tab.active{background:var(--g1);color:var(--white);border-color:var(--g1);}
-.sub-section{display:none;}
-.sub-section.active{display:block;}
-
-/* ─── HARAKAT & WORDS ─── */
-.harakat-grid, .words-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
-.harakat-card, .word-card{background:var(--white);border-radius:var(--rr);padding:16px 12px;box-shadow:var(--sh);cursor:pointer;text-align:center;border-top:4px solid var(--g2);}
-.har-ex, .word-ar{font-family:'Reem Kufi','Amiri Quran',serif;font-size:2.5rem;color:var(--navy);}
-.har-name-ar, .word-ku{font-weight:700;color:var(--g1);margin-top:5px;}
-
-/* ─── SURAHS ─── */
-.surah-card{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:20px;padding:18px 14px;margin-bottom:14px;color:white;}
-.surah-title-ar{font-family:'Reem Kufi',sans-serif;font-size:1.3rem;color:var(--gold);margin-bottom:10px;}
-.verse-row{padding:8px;border-bottom:1px solid rgba(255,255,255,.07);cursor:pointer;}
-.verse-text{font-family:'Amiri Quran',serif;font-size:1.3rem;line-height:2;}
-
-/* ─── GAME UI ─── */
-.game-container{max-width:480px;margin:0 auto;}
-.game-modes-grid{display:grid;grid-template-columns:1fr;gap:12px;}
-.mode-card{background:var(--white);border-radius:var(--rr);padding:18px;text-align:center;cursor:pointer;box-shadow:var(--sh);border:2px solid transparent;}
-.mode-card:hover{border-color:var(--g3);background:var(--g4);}
-.mode-icon{font-size:2.2rem;margin-bottom:4px;}
-.mode-label{font-family:'Reem Kufi',sans-serif;font-size:1rem;font-weight:700;color:var(--navy);}
-
-/* 🛑 EXIT GAME BUTTON STYLE */
-.btn-exit-game {
-  width: 100%;
-  background: #FF4D4D;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 12px;
-  font-family:'Tajawal', sans-serif;
-  font-size: .95rem;
-  font-weight: 700;
-  cursor: pointer;
-  margin-top: 15px;
-  box-shadow: 0 4px 12px rgba(255,77,77,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-.btn-exit-game:active { transform: scale(0.98); }
 
-.game-hud{display:flex;align-items:center;background:var(--white);border-radius:var(--rr);padding:10px 14px;margin-bottom:14px;box-shadow:var(--sh);gap:12px;}
-.hud-score-wrap{text-align:center;min-width:40px;}
-.hud-lbl{font-size:.68rem;color:var(--muted);}
-.hud-val{font-family:'Reem Kufi',sans-serif;font-size:1.25rem;font-weight:700;color:var(--g1);}
-.prog-wrap{flex:1;background:var(--cream2);border-radius:50px;height:9px;overflow:hidden;}
-.prog-inner{height:100%;background:var(--g1);width:0%;transition:width .3s;}
+body{
+  font-family:'Tajawal',sans-serif;
+  background:var(--bg);
+  direction:rtl;
+  overflow-x:hidden;
+}
 
-.game-question{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:22px;padding:28px 18px;text-align:center;margin-bottom:18px;color:white;}
-.game-qitem{font-family:'Reem Kufi','Amiri Quran',serif;font-size:4.5rem;font-weight:700;}
+/* TOPBAR */
 
-.game-opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
-.game-opt{background:var(--white);border-radius:var(--rr);padding:15px;font-family:'Reem Kufi',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);cursor:pointer;text-align:center;box-shadow:var(--sh);border:2px solid transparent;}
-.game-opt.correct{background:var(--g2);color:white;}
-.game-opt.wrong{background:#ffe2e2;border-color:var(--coral);}
+#topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:60px;
+  background:linear-gradient(135deg,var(--dark),#142038);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  z-index:1000;
+  color:white;
+}
 
-.game-feedback{background:var(--white);border-radius:var(--rr);padding:20px;text-align:center;margin-top:14px;box-shadow:var(--sh);}
-.btn-next{background:var(--g1);color:white;border:none;border-radius:11px;padding:10px 24px;font-weight:700;cursor:pointer;}
+.logo{
+  font-family:'Reem Kufi',sans-serif;
+  font-size:1.2rem;
+  color:var(--gold);
+}
 
-/* MEMORY & SPOT GAME */
-.memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-.mem-card{aspect-ratio:1;background:var(--g2);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;font-weight:700;cursor:pointer;}
-.mem-card.flipped{background:var(--white);color:var(--navy);border:2px solid var(--g2);font-family:'Reem Kufi';}
-.mem-card.matched{opacity:0.4;pointer-events:none;}
+#stars{
+  background:rgba(255,255,255,.1);
+  padding:6px 12px;
+  border-radius:50px;
+}
 
-.spot-target{background:var(--navy);border-radius:18px;padding:14px;text-align:center;color:white;margin-bottom:12px;}
-.spot-target-letter{font-family:'Reem Kufi';font-size:3rem;color:var(--gold);}
-.spot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-.spot-cell{aspect-ratio:1;border-radius:12px;background:white;display:flex;align-items:center;justify-content:center;font-family:'Reem Kufi';font-size:1.8rem;cursor:pointer;box-shadow:var(--sh);}
-.spot-cell.found{background:var(--g3);color:white;}
+/* PAGE */
 
-.game-end{background:var(--navy);border-radius:22px;padding:30px;text-align:center;color:white;}
-.hidden{display:none!important;}
+.page{
+  display:none;
+  padding:80px 14px 90px;
+  min-height:100vh;
+}
+
+.page.active{
+  display:block;
+}
+
+/* HOME */
+
+#page-home{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#0A1628,#0C3954);
+  color:white;
+}
+
+.home-title{
+  font-size:2.5rem;
+  color:var(--gold);
+  font-family:'Reem Kufi',sans-serif;
+  margin-bottom:20px;
+}
+
+.home-grid{
+  width:100%;
+  max-width:400px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.card{
+  background:rgba(255,255,255,.1);
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:scale(1.04);
+}
+
+.card-icon{
+  font-size:2rem;
+  margin-bottom:10px;
+}
+
+.card-title{
+  font-family:'Reem Kufi',sans-serif;
+}
+
+/* LETTERS */
+
+.letters-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.letter-card{
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  border-radius:18px;
+  aspect-ratio:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  cursor:pointer;
+}
+
+.letter-ar{
+  font-size:2rem;
+  font-family:'Amiri Quran',serif;
+}
+
+.letter-name{
+  font-size:.8rem;
+}
+
+/* GAME */
+
+.game-container{
+  position:relative;
+  max-width:500px;
+  margin:auto;
+}
+
+.game-close-btn{
+  position:absolute;
+  top:-10px;
+  left:0;
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:#ff4d4d;
+  color:white;
+  font-size:1.2rem;
+  cursor:pointer;
+}
+
+.game-close-btn:active{
+  transform:scale(.9);
+}
+
+.game-modes{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.mode{
+  background:white;
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 4px 20px rgba(0,0,0,.1);
+}
+
+.mode-icon{
+  font-size:2rem;
+  margin-bottom:10px;
+}
+
+.mode-title{
+  font-family:'Reem Kufi',sans-serif;
+}
+
+#gamePlay{
+  display:none;
+}
+
+.question-box{
+  background:linear-gradient(135deg,#0A1628,#142038);
+  color:white;
+  border-radius:20px;
+  padding:30px;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.question{
+  font-size:4rem;
+  font-family:'Amiri Quran',serif;
+}
+
+.options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.option{
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:white;
+  cursor:pointer;
+  font-size:1.1rem;
+  font-family:'Reem Kufi',sans-serif;
+}
+
+.option.correct{
+  background:#30D158;
+  color:white;
+}
+
+.option.wrong{
+  background:#FF6B6B;
+  color:white;
+}
+
+/* NAV */
+
+#bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid #ddd;
+}
+
+.nav-btn{
+  border:none;
+  background:none;
+  padding:10px;
+  cursor:pointer;
+}
+
+.nav-icon{
+  font-size:1.4rem;
+}
+
+.nav-text{
+  font-size:.7rem;
+}
 </style>
 </head>
+
 <body>
 
-<!-- TOPBAR -->
 <div id="topbar">
   <div class="logo">🌙 نووری قورئان</div>
-  <div id="stars-display">⭐ <span id="stars-count">0</span></div>
+  <div id="stars">⭐ <span id="starsCount">0</span></div>
 </div>
 
-<!-- ═══════════ HOME ═══════════ -->
+<!-- HOME -->
+
 <div id="page-home" class="page active">
-  <div class="home-moon">🌙</div>
   <div class="home-title">نووری قورئان</div>
-  <div class="home-sub">فێربوونی قورئانی پیرۆز بۆ منداڵان ✨</div>
+
   <div class="home-grid">
-    <div class="hcard" onclick="goPage('learn')"><div class="hi">أ</div><div class="hl">فێربوون</div><div class="hc">پیت، حەرەکات، وشە</div></div>
-    <div class="hcard" onclick="goPage('write')"><div class="hi">✍️</div><div class="hl">نووسین</div><div class="hc">تمرینی نووسین</div></div>
-    <div class="hcard" onclick="goPage('surahs')"><div class="hi">☪️</div><div class="hl">سووراتەکان</div><div class="hc">سوورەتە کورتەکان</div></div>
-    <div class="hcard" onclick="goPage('game')"><div class="hi">🎮</div><div class="hl">یاری</div><div class="hc">یارییە زیرەکەکان</div></div>
+    <div class="card" onclick="goPage('learn')">
+      <div class="card-icon">📚</div>
+      <div class="card-title">فێربوون</div>
+    </div>
+
+    <div class="card" onclick="goPage('game')">
+      <div class="card-icon">🎮</div>
+      <div class="card-title">یاری</div>
+    </div>
   </div>
 </div>
 
-<!-- ═══════════ LEARN ═══════════ -->
+<!-- LEARN -->
+
 <div id="page-learn" class="page">
-  <div class="sub-tabs">
-    <button class="sub-tab active" id="btn-sub-letters" onclick="showSubTab('letters')">📚 پیتەکان</button>
-    <button class="sub-tab" id="btn-sub-harakat" onclick="showSubTab('harakat')">✨ حەرەکات</button>
-    <button class="sub-tab" id="btn-sub-words" onclick="showSubTab('words')">🌿 وشەکان</button>
-  </div>
-  <div id="sub-letters" class="sub-section active">
-    <div class="letters-grid" id="lettersGrid"></div>
-  </div>
-  <div id="sub-harakat" class="sub-section">
-    <div class="harakat-grid" id="harakatGrid"></div>
-  </div>
-  <div id="sub-words" class="sub-section">
-    <div class="words-grid" id="wordsGrid"></div>
-  </div>
+
+  <h2 style="margin-bottom:20px">📚 پیتەکان</h2>
+
+  <div class="letters-grid" id="lettersGrid"></div>
+
 </div>
 
-<!-- ═══════════ WRITE ═══════════ -->
-<div id="page-write" class="page">
-  <div class="section-title">✍️ تمرینی نووسینی پیتەکان</div>
-  <p style="text-align:center; color:var(--muted); margin-bottom:15px;">بۆ ئەم بەشە دەتوانیت لە وەشانی داهاتوودا سوود لە تەختەی نووسین وەربگریت.</p>
-</div>
+<!-- GAME -->
 
-<!-- ═══════════ SURAHS ═══════════ -->
-<div id="page-surahs" class="page">
-  <div class="section-title">☪️ سووراتە کورتەکان</div>
-  <div id="surahContent"></div>
-</div>
-
-<!-- ═══════════ GAME ═══════════ -->
 <div id="page-game" class="page">
-  <div class="section-title">🎮 یارییەکان</div>
+
   <div class="game-container">
-    
-    <!-- LIST OF GAMES -->
-    <div id="gameModes">
-      <div class="game-modes-grid">
-        <div class="mode-card" onclick="startQuizGame('name')">
-          <div class="mode-icon">🤔</div>
-          <div class="mode-label">یاری دۆزینەوەی ناوی پیت</div>
-        </div>
-        <div class="mode-card" onclick="startMemoryGame()">
-          <div class="mode-icon">🎴</div>
-          <div class="mode-label">یاری بیرکەوتنەوە (کارتەکان)</div>
-        </div>
-        <div class="mode-card" onclick="startSpotGame()">
-          <div class="mode-icon">🎯</div>
-          <div class="mode-label">یاری نیشانەگرتن لە پیتەکە</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- ACTIVE QUIZ GAME -->
-    <div id="gamePlay" class="hidden">
-      <div class="game-hud">
-        <div class="hud-score-wrap"><div class="hud-lbl">خاڵ</div><div class="hud-val" id="hudScore">0</div></div>
-        <div class="prog-wrap"><div class="prog-inner" id="progBar"></div></div>
-        <div class="hud-score-wrap"><div class="hud-lbl">پرسیار</div><div class="hud-val" id="hudQ">1/10</div></div>
-      </div>
-      <div class="game-question">
-        <div class="game-qitem" id="qItem">ب</div>
-      </div>
-      <div class="game-opts" id="gameOpts"></div>
-      <div class="game-feedback hidden" id="gameFeedback">
-        <div id="fbTitle" style="font-weight:700; margin-bottom:8px;">ڕاستە! 🎉</div>
-        <button class="btn-next" onclick="nextQuestion()">دواتر ←</button>
-      </div>
-      <!-- 🛑 EXIT BUTTON FOR QUIZ -->
-      <button class="btn-exit-game" onclick="exitActiveGame()">🛑 کۆتاییهێنان بە یاری</button>
-    </div>
+    <button class="game-close-btn" onclick="closeGame()">✕</button>
 
-    <!-- MEMORY GAME -->
-    <div id="gameMemory" class="hidden">
-      <div style="margin-bottom:10px; font-weight:700; text-align:center; color:var(--g1);">کارتە هاوشێوەکان بدۆزەرەوە ✨</div>
-      <div class="memory-grid" id="memoryGrid"></div>
-      <!-- 🛑 EXIT BUTTON FOR MEMORY GAME -->
-      <button class="btn-exit-game" onclick="exitActiveGame()">🛑 کۆتاییهێنان بە یاری</button>
-    </div>
+    <div id="gameModes" class="game-modes"></div>
 
-    <!-- SPOT GAME -->
-    <div id="gameSpot" class="hidden">
-      <div class="spot-target">
-        <div>ئەم پیتە دەست نیشان بکە:</div>
-        <div class="spot-target-letter" id="spotTarget">ا</div>
+    <div id="gamePlay">
+
+      <div class="question-box">
+        <div style="margin-bottom:10px">ناوی ئەم پیتە چییە؟</div>
+        <div class="question" id="questionLetter">ب</div>
       </div>
-      <div class="spot-grid" id="spotGrid"></div>
-      <!-- 🛑 EXIT BUTTON FOR SPOT GAME -->
-      <button class="btn-exit-game" onclick="exitActiveGame()">🛑 کۆتاییهێنان بە یاری</button>
-    </div>
 
-    <!-- GAME END -->
-    <div id="gameEnd" class="game-end hidden">
-      <div style="font-size:3rem">🏆</div>
-      <h2>یارییەکە تەواو بوو!</h2>
-      <p id="endScore" style="margin:15px 0;"></p>
-      <button class="btn-next" onclick="exitActiveGame()">🔄 گەڕانەوە بۆ سەرەتا</button>
+      <div class="options" id="options"></div>
+
     </div>
 
   </div>
+
 </div>
 
-<!-- LETTER MODAL -->
-<div id="letter-modal" class="hidden" onclick="closeModal()">
-  <div class="modal-card" onclick="event.stopPropagation()">
-    <div class="modal-letter" id="modalLetter">ب</div>
-    <div class="modal-name" id="modalName">بَاء</div>
-    <div class="modal-ku" id="modalKu">با</div>
-    <div class="modal-btns">
-      <button class="btn-m btn-primary" onclick="speakCurrentLetter()">🔊 گوێبگرە</button>
-      <button class="btn-m btn-secondary" onclick="closeModal()">✕ داخستن</button>
-    </div>
-  </div>
-</div>
+<!-- NAV -->
 
-<!-- BOTTOM NAV -->
 <div id="bottom-nav">
-  <button class="nav-btn active" id="nav-home" onclick="goPage('home')"><span class="nav-icon">🏠</span><span class="nav-label">سەرەتا</span></button>
-  <button class="nav-btn" id="nav-learn" onclick="goPage('learn')"><span class="nav-icon">📚</span><span class="nav-label">فێربوون</span></button>
-  <button class="nav-btn" id="nav-write" onclick="goPage('write')"><span class="nav-icon">✍️</span><span class="nav-label">نووسین</span></button>
-  <button class="nav-btn" id="nav-surahs" onclick="goPage('surahs')"><span class="nav-icon">☪️</span><span class="nav-label">سوورەتەکان</span></button>
-  <button class="nav-btn" id="nav-game" onclick="goPage('game')"><span class="nav-icon">🎮</span><span class="nav-label">یاری</span></button>
+
+  <button class="nav-btn" onclick="goPage('home')">
+    <div class="nav-icon">🏠</div>
+    <div class="nav-text">سەرەتا</div>
+  </button>
+
+  <button class="nav-btn" onclick="goPage('learn')">
+    <div class="nav-icon">📚</div>
+    <div class="nav-text">فێربوون</div>
+  </button>
+
+  <button class="nav-btn" onclick="goPage('game')">
+    <div class="nav-icon">🎮</div>
+    <div class="nav-text">یاری</div>
+  </button>
+
 </div>
 
 <script>
-// ══════════ DATA ══════════
-const LETTERS=[
-  {ar:'ا', name:'ألف', ku:'ئەلف', color:'#FF6B6B'},
-  {ar:'ب', name:'باء', ku:'با', color:'#FF9500'},
-  {ar:'ت', name:'تاء', ku:'تا', color:'#F5C518'},
-  {ar:'ث', name:'ثاء', ku:'ثا', color:'#30D158'},
-  {ar:'ج', name:'جيم', ku:'جیم', color:'#0A84FF'},
-  {ar:'ح', name:'حاء', ku:'حا', color:'#6E5CE6'},
-  {ar:'خ', name:'خاء', ku:'خا', color:'#BF5AF2'},
-  {ar:'د', name:'دال', ku:'دال', color:'#FF375F'},
-  {ar:'ر', name:'راء', ku:'ڕا', color:'#32D74B'},
-  {ar:'ز', name:'زاي', ku:'زای', color:'#0084FF'}
+
+/* DATA */
+
+const LETTERS = [
+  {ar:'ا',name:'ألف',sound:'ألف'},
+  {ar:'ب',name:'باء',sound:'باء'},
+  {ar:'ت',name:'تاء',sound:'تاء'},
+  {ar:'ث',name:'ثاء',sound:'ثاء'},
+  {ar:'ج',name:'جيم',sound:'جيم'},
+  {ar:'ح',name:'حاء',sound:'حاء'},
+  {ar:'خ',name:'خاء',sound:'خاء'},
+  {ar:'د',name:'دال',sound:'دال'}
 ];
 
-const HARAKAT=[
-  {ex:'أَ', name:'فەتحە (ـَ)', ku:'ئە'},
-  {ex:'أُ', name:'زەممە (ـُ)', ku:'ئو'},
-  {ex:'أِ', name:'کەسرە (ـِ)', ku:'ئی'}
-];
-
-const WORDS=[
-  {ar:'أَسَد', ku:'شێر'},
-  {ar:'بَيْت', ku:'ماڵ'},
-  {ar:'تُفَّاح', ku:'سێو'}
-];
-
-const SURAHS=[
-  {title:'سوورەتی الإخلاص', verses:['قُلْ هُوَ اللَّهُ أَحَدٌ','اللَّهُ الصَّمَدُ','لَمْ يَلِدْ وَلَمْ يُولَدْ','وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ']},
-  {title:'سوورەتی الفلق', verses:['قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ','مِن شَرِّ مَا خَلَقَ','وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ','وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ','وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ']}
-];
-
-let currentLetterText = "";
-let score = 0;
 let stars = 0;
-let quizRound = 0;
-let correctAnswer = "";
 
-// ══════════ SPEECH FUNCTION (چارەسەری کێشەی دەنگ) ══════════
-function playSound(text) {
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel(); // وەستاندنی هەر دەنگێکی پێشوو
-    let utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'ar-SA'; // خوێندنەوە بە زمانی عەرەبی دروست
-    utterance.rate = 0.85;    // کەمێک خاوکردنەوە بۆ تێگەیشتنی منداڵەکە
-    window.speechSynthesis.speak(utterance);
-  } else {
-    alert("سیستەمەکەت پشتگیری خوێندنەوەی دەنگ ناکات.");
+/* SPEECH FIX */
+
+let arabicVoice = null;
+
+function loadArabicVoice() {
+
+  const voices = speechSynthesis.getVoices();
+
+  arabicVoice =
+    voices.find(v => v.lang.includes('ar-SA')) ||
+    voices.find(v => v.lang.includes('ar')) ||
+    voices[0];
+}
+
+loadArabicVoice();
+
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadArabicVoice;
+}
+
+function speak(text, rate = 0.8){
+
+  if(!window.speechSynthesis){
+    alert('المتصفح لا يدعم الصوت');
+    return;
   }
-}
 
-function speakCurrentLetter() {
-  playSound(currentLetterText);
-}
+  speechSynthesis.cancel();
 
-// ══════════ NAVIGATION ══════════
-function goPage(pageId) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  
-  document.getElementById('page-' + pageId).classList.add('active');
-  const activeNav = document.getElementById('nav-' + pageId);
-  if(activeNav) activeNav.classList.add('active');
+  const utterance = new SpeechSynthesisUtterance(text);
 
-  if(pageId === 'game') {
-    exitActiveGame(); // دڵنیابوونەوە لە نیشاندانی لیستی یارییەکان کاتێک کلیک لە بەشی یاری دەکاتەوە
+  utterance.lang = 'ar-SA';
+  utterance.rate = rate;
+  utterance.pitch = 1;
+
+  if(arabicVoice){
+    utterance.voice = arabicVoice;
   }
+
+  speechSynthesis.speak(utterance);
 }
 
-function showSubTab(subId) {
-  document.querySelectorAll('.sub-section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
-  
-  document.getElementById('sub-' + subId).classList.add('active');
-  document.getElementById('btn-sub-' + subId).classList.add('active');
+/* MOBILE AUDIO FIX */
+
+document.body.addEventListener('click', () => {
+  speechSynthesis.resume();
+}, { once:true });
+
+/* NAVIGATION */
+
+function goPage(name){
+
+  document.querySelectorAll('.page').forEach(p=>{
+    p.classList.remove('active');
+  });
+
+  document.getElementById('page-'+name).classList.add('active');
 }
 
-// ══════════ GENERATE LEARN CONTENT ══════════
-function initLearn() {
-  // Letters
+/* RENDER LETTERS */
+
+function renderLetters(){
+
   const grid = document.getElementById('lettersGrid');
-  grid.innerHTML = "";
-  LETTERS.forEach(l => {
-    let div = document.createElement('div');
-    div.className = "letter-card";
-    div.style.backgroundColor = l.color;
-    div.innerHTML = `<div class="lc-ar">${l.ar}</div><div class="lc-name">${l.name}</div>`;
-    div.onclick = () => openModal(l);
-    grid.appendChild(div);
-  });
 
-  // Harakat
-  const hGrid = document.getElementById('harakatGrid');
-  hGrid.innerHTML = "";
-  HARAKAT.forEach(h => {
-    let div = document.createElement('div');
-    div.className = "harakat-card";
-    div.innerHTML = `<div class="har-ex">${h.ex}</div><div class="har-name-ar">${h.name}</div><div>${h.ku}</div>`;
-    div.onclick = () => playSound(h.ex);
-    hGrid.appendChild(div);
-  });
-
-  // Words
-  const wGrid = document.getElementById('wordsGrid');
-  wGrid.innerHTML = "";
-  WORDS.forEach(w => {
-    let div = document.createElement('div');
-    div.className = "word-card";
-    div.innerHTML = `<div class="word-ar">${w.ar}</div><div class="word-ku">${w.ku}</div>`;
-    div.onclick = () => playSound(w.ar);
-    wGrid.appendChild(div);
-  });
+  grid.innerHTML = LETTERS.map((l,i)=>`
+  
+    <div class="letter-card" onclick="openLetter(${i})">
+      <div class="letter-ar">${l.ar}</div>
+      <div class="letter-name">${l.name}</div>
+    </div>
+  
+  `).join('');
 }
 
-// MODAL
-function openModal(letterObj) {
-  currentLetterText = letterObj.name;
-  document.getElementById('modalLetter').innerText = letterObj.ar;
-  document.getElementById('modalName').innerText = letterObj.name;
-  document.getElementById('modalKu').innerText = "بە کوردی: " + letterObj.ku;
-  document.getElementById('letter-modal').classList.remove('hidden');
-  playSound(letterObj.name);
+function openLetter(i){
+
+  speak(LETTERS[i].sound);
 }
 
-function closeModal() {
-  document.getElementById('letter-modal').classList.add('hidden');
+/* GAME */
+
+function renderGameModes(){
+
+  document.getElementById('gameModes').innerHTML = `
+  
+    <div class="mode" onclick="startGame()">
+      <div class="mode-icon">🎮</div>
+      <div class="mode-title">دەستپێکردن</div>
+    </div>
+  
+  `;
 }
 
-// SURAHS
-function initSurahs() {
-  const container = document.getElementById('surahContent');
-  container.innerHTML = "";
-  SURAHS.forEach(s => {
-    let card = document.createElement('div');
-    card.className = "surah-card";
-    let html = `<div class="surah-title-ar">${s.title}</div>`;
-    s.verses.forEach(v => {
-      html += `<div class="verse-row" onclick="playSound('${v.replace(/'/g, "\\'")}')">
-                <div class="verse-text">✨ ${v}</div>
-              </div>`;
-    });
-    card.innerHTML = html;
-    container.appendChild(card);
-  });
-}
+let currentQuestion = null;
 
-// ══════════ GAME LOGIC & EXIT ACTIONS ══════════
+function startGame(){
 
-// دوگمەی داخستن و گەڕانەوە بۆ لیستی یارییەکان
-function exitActiveGame() {
-  document.getElementById('gamePlay').classList.add('hidden');
-  document.getElementById('gameMemory').classList.add('hidden');
-  document.getElementById('gameSpot').classList.add('hidden');
-  document.getElementById('gameEnd').classList.add('hidden');
-  document.getElementById('gameModes').classList.remove('hidden');
-}
+  document.getElementById('gameModes').style.display='none';
+  document.getElementById('gamePlay').style.display='block';
 
-// 1. QUIZ GAME
-function startQuizGame() {
-  document.getElementById('gameModes').classList.add('hidden');
-  document.getElementById('gamePlay').classList.remove('hidden');
-  score = 0;
-  quizRound = 0;
-  document.getElementById('hudScore').innerText = score;
   nextQuestion();
 }
 
-function nextQuestion() {
-  quizRound++;
-  if(quizRound > 10) {
-    endGame();
-    return;
-  }
-  document.getElementById('hudQ').innerText = quizRound + "/10";
-  document.getElementById('progBar').style.width = (quizRound * 10) + "%";
-  document.getElementById('gameFeedback').classList.add('hidden');
+function nextQuestion(){
 
-  let randomLetter = LETTERS[Math.floor(Math.random() * LETTERS.length)];
-  correctAnswer = randomLetter.name;
-  document.getElementById('qItem').innerText = randomLetter.ar;
+  const letter = LETTERS[Math.floor(Math.random()*LETTERS.length)];
+
+  currentQuestion = letter;
+
+  document.getElementById('questionLetter').textContent = letter.ar;
+
+  speak(letter.sound);
+
+  let options = [letter.name];
+
+  while(options.length < 4){
+
+    const rand = LETTERS[Math.floor(Math.random()*LETTERS.length)].name;
+
+    if(!options.includes(rand)){
+      options.push(rand);
+    }
+  }
+
+  options = options.sort(()=>Math.random()-0.5);
+
+  document.getElementById('options').innerHTML = options.map(opt=>`
   
-  // دەنگی پیتەکە لێبدە کاتێک پرسیارەکە دێت
-  playSound(randomLetter.name);
-
-  let optsContainer = document.getElementById('gameOpts');
-  optsContainer.innerHTML = "";
-
-  let options = [correctAnswer];
-  while(options.length < 4) {
-    let wrong = LETTERS[Math.floor(Math.random() * LETTERS.length)].name;
-    if(!options.includes(wrong)) options.push(wrong);
-  }
-  options.sort(() => Math.random() - 0.5);
-
-  options.forEach(opt => {
-    let btn = document.createElement('div');
-    btn.className = "game-opt";
-    btn.innerText = opt;
-    btn.onclick = () => checkAnswer(btn, opt);
-    optsContainer.appendChild(btn);
-  });
+    <button class="option" onclick="checkAnswer(this,'${opt}')">
+      ${opt}
+    </button>
+  
+  `).join('');
 }
 
-function checkAnswer(btn, chosen) {
-  if(chosen === correctAnswer) {
+function checkAnswer(btn, answer){
+
+  const correct = answer === currentQuestion.name;
+
+  document.querySelectorAll('.option').forEach(b=>{
+
+    if(b.textContent.trim() === currentQuestion.name){
+      b.classList.add('correct');
+    }
+  });
+
+  if(correct){
+
     btn.classList.add('correct');
-    score += 10;
-    stars += 1;
-    document.getElementById('hudScore').innerText = score;
-    document.getElementById('stars-count').innerText = stars;
-    document.getElementById('fbTitle').innerText = "ڕاستە! ئافەرین 🎉";
-  } else {
+
+    stars += 2;
+
+    updateStars();
+
+    speak('أحسنت');
+
+  }else{
+
     btn.classList.add('wrong');
-    document.getElementById('fbTitle').innerText = "هەڵەیە! جارێکی تر تاقی بکەرەوە 💜";
+
+    speak(currentQuestion.name);
   }
-  document.getElementById('gameFeedback').classList.remove('hidden');
+
+  setTimeout(()=>{
+    nextQuestion();
+  },1500);
 }
 
-// 2. MEMORY GAME
-function startMemoryGame() {
-  document.getElementById('gameModes').classList.add('hidden');
-  document.getElementById('gameMemory').classList.remove('hidden');
-  
-  const memGrid = document.getElementById('memoryGrid');
-  memGrid.innerHTML = "";
-  
-  // دروستکردنی ٤ جووت پیت
-  let list = [...LETTERS].sort(() => Math.random() - 0.5).slice(0, 4);
-  let cardsData = [...list, ...list].sort(() => Math.random() - 0.5);
-  
-  let flippedCards = [];
-  
-  cardsData.forEach(item => {
-    let card = document.createElement('div');
-    card.className = "mem-card";
-    card.innerText = "❓";
-    
-    card.onclick = () => {
-      if(flippedCards.length < 2 && !card.classList.contains('flipped')) {
-        card.classList.add('flipped');
-        card.innerText = item.ar;
-        playSound(item.name);
-        flippedCards.push({card, item});
-        
-        if(flippedCards.length === 2) {
-          setTimeout(() => {
-            if(flippedCards[0].item.ar === flippedCards[1].item.ar) {
-              flippedCards[0].card.classList.add('matched');
-              flippedCards[1].card.classList.add('matched');
-              stars += 2;
-              document.getElementById('stars-count').innerText = stars;
-            } else {
-              flippedCards[0].card.classList.remove('flipped');
-              flippedCards[0].card.innerText = "❓";
-              flippedCards[1].card.classList.remove('flipped');
-              flippedCards[1].card.innerText = "❓";
-            }
-            flippedCards = [];
-            
-            // ئەگەر هەمووی دۆزرایەوە
-            if(document.querySelectorAll('.mem-card.matched').length === 8) {
-              endGame();
-            }
-          }, 1000);
-        }
-      }
-    };
-    memGrid.appendChild(card);
-  });
+/* CLOSE GAME */
+
+function closeGame(){
+
+  speechSynthesis.cancel();
+
+  document.getElementById('gamePlay').style.display='none';
+
+  document.getElementById('gameModes').style.display='grid';
 }
 
-// 3. SPOT GAME
-function startSpotGame() {
-  document.getElementById('gameModes').classList.add('hidden');
-  document.getElementById('gameSpot').classList.remove('hidden');
-  
-  let target = LETTERS[Math.floor(Math.random() * LETTERS.length)];
-  document.getElementById('spotTarget').innerText = target.ar;
-  playSound(target.name);
+/* STARS */
 
-  const grid = document.getElementById('spotGrid');
-  grid.innerHTML = "";
+function updateStars(){
 
-  for(let i=0; i<16; i++) {
-    let rand = LETTERS[Math.floor(Math.random() * LETTERS.length)];
-    // دڵنیابوون لەوەی لانی کەم چەند دانەیەکی ڕاست تێدایە
-    if(i < 3) rand = target; 
-    
-    let cell = document.createElement('div');
-    cell.className = "spot-cell";
-    cell.innerText = rand.ar;
-    
-    cell.onclick = () => {
-      if(rand.ar === target.ar) {
-        cell.classList.add('found');
-        stars += 1;
-        document.getElementById('stars-count').innerText = stars;
-        playSound(rand.name);
-        
-        // پاش کەمێک گۆڕینی پیتەکە بۆ ئەوەی یارییەکە بەردەوام بێت
-        setTimeout(() => {
-          if(document.querySelectorAll('.spot-cell.found').length >= 3) {
-            endGame();
-          }
-        }, 800);
-      } else {
-        cell.style.backgroundColor = "#ffe2e2";
-      }
-    };
-    grid.appendChild(cell);
-  }
+  document.getElementById('starsCount').textContent = stars;
 }
 
-function endGame() {
-  document.getElementById('gamePlay').classList.add('hidden');
-  document.getElementById('gameMemory').classList.add('hidden');
-  document.getElementById('gameSpot').classList.add('hidden');
-  document.getElementById('gameEnd').classList.remove('hidden');
-  document.getElementById('endScore').innerText = "تۆ سەرکەوتووانە یارییەکەت تەواو کرد و ئەستێرەت کۆکردەوە! ⭐";
-}
+/* INIT */
 
-// INITIALIZE APP
-window.onload = () => {
-  initLearn();
-  initSurahs();
-};
+renderLetters();
+
+renderGameModes();
+
 </script>
 
 </body>
