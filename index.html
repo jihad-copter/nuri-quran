@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>🌙 نووری قورئان — فێربوون بۆ منداڵان</title>
-<!-- Moon icon for address bar (favicon / tab icon) -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231A2E44'/%3E%3Cpath d='M50 15 A35 35 0 1 1 30 85 A30 30 0 0 0 50 15' fill='%23F5C518'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;600;700&family=Amiri+Quran&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -25,13 +23,11 @@
 body{font-family:'Tajawal',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;direction:rtl;overflow-x:hidden;padding-bottom:72px;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 0L80 40L40 80L0 40Z' fill='none' stroke='%231DBF96' stroke-width='.5' opacity='.12'/%3E%3Ccircle cx='40' cy='40' r='11' fill='none' stroke='%23F5C518' stroke-width='.4' opacity='.1'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
 
-/* ─── TOPBAR ─── */
 #topbar{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(135deg,var(--navy),var(--navy2));padding:8px 14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 20px rgba(0,0,0,.3);}
 .logo{font-family:'Reem Kufi',sans-serif;font-size:1.2rem;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:6px;}
 #stars-display{display:flex;align-items:center;gap:5px;background:rgba(245,197,24,.13);border:1.5px solid rgba(245,197,24,.35);border-radius:50px;padding:4px 11px;}
 #stars-count{font-family:'Reem Kufi',sans-serif;font-size:.95rem;font-weight:700;color:var(--gold);}
 
-/* ─── BOTTOM NAV ─── */
 #bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--white);border-top:1px solid rgba(0,0,0,.07);display:grid;grid-template-columns:repeat(6,1fr);box-shadow:0 -3px 20px rgba(0,0,0,.09);}
 .nav-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:7px 2px;cursor:pointer;border:none;background:transparent;}
 .nav-icon{font-size:1.3rem;}
@@ -40,7 +36,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav-btn.active .nav-icon{transform:scale(1.13);}
 .nav-btn:active{transform:scale(.9);}
 
-/* ─── PAGES ─── */
 .page{display:none;padding:62px 12px 10px;position:relative;z-index:1;min-height:100vh;animation:fadeIn .25s ease;}
 .page.active{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
@@ -48,7 +43,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .section-title{font-family:'Reem Kufi',sans-serif;font-size:1.2rem;font-weight:700;color:var(--g1);margin:8px 0 14px;display:flex;align-items:center;gap:7px;}
 .section-title::before{content:'';width:4px;height:20px;background:linear-gradient(to bottom,var(--g3),var(--g1));border-radius:4px;flex-shrink:0;}
 
-/* ─── HOME ─── */
 #page-home{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 55%,#0C3954 100%);padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
 .home-star{position:absolute;background:var(--gold);border-radius:50%;animation:twinkle 3s ease-in-out infinite;}
 @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.9}}
@@ -62,24 +56,20 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hcard .hi{font-size:2.2rem;margin-bottom:6px;}
 .hcard .hl{font-family:'Reem Kufi',sans-serif;font-size:.88rem;font-weight:700;color:var(--white);}
 .hcard .hc{font-size:.7rem;color:rgba(255,255,255,.45);margin-top:2px;}
-.home-game-btn{background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--white);border:none;border-radius:var(--rr);padding:14px 32px;font-family:'Reem Kufi',sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer;margin-bottom:24px;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(13,110,94,.4);}
 
-/* ─── LETTER CARDS ─── */
 .letters-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
 @media(min-width:480px){.letters-grid{grid-template-columns:repeat(5,1fr);}}
 @media(min-width:700px){.letters-grid{grid-template-columns:repeat(7,1fr);}}
-.letter-card{border-radius:var(--rr);padding:10px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform .18s,box-shadow .18s;position:relative;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.11);aspect-ratio:1/1.15;}
+.letter-card{border-radius:var(--rr);padding:10px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:transform .18s,box-shadow .18s;position:relative;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.11);aspect-ratio:1/1.15;background:linear-gradient(135deg,var(--g1),var(--g2));}
 .letter-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.18),transparent);}
 .letter-card:active{transform:scale(.91);}
-.letter-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.17);}
 .lc-ar{font-family:'Reem Kufi','Amiri Quran',serif;font-size:2.2rem;font-weight:700;color:var(--white);line-height:1;text-shadow:0 2px 6px rgba(0,0,0,.2);}
 .lc-name{font-size:.6rem;font-weight:700;color:rgba(255,255,255,.85);font-family:'Reem Kufi',sans-serif;margin-top:4px;}
 .lc-phon{font-size:.55rem;color:rgba(255,255,255,.65);font-family:monospace;letter-spacing:.04em;margin-top:2px;}
 
-/* ─── LETTER MODAL with CLOSE button ─── */
 #letter-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);padding:18px;animation:fadeIn .2s;}
 #letter-modal.hidden{display:none;}
-.modal-card{background:var(--white);border-radius:24px;padding:24px 20px;width:100%;max-width:360px;text-align:center;animation:popIn .3s cubic-bezier(.34,1.56,.64,1);position:relative;}
+.modal-card{background:var(--white);border-radius:24px;padding:24px 20px;width:100%;max-width:360px;text-align:center;animation:popIn .3s cubic-bezier(.34,1.56,.64,1);}
 @keyframes popIn{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
 .modal-letter{font-family:'Reem Kufi','Amiri Quran',serif;font-size:5rem;font-weight:700;line-height:1;margin-bottom:4px;}
 .modal-name{font-family:'Reem Kufi',sans-serif;font-size:1.35rem;font-weight:700;color:var(--navy);}
@@ -94,86 +84,68 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .btn-m:active{transform:scale(.95);}
 .btn-primary{background:var(--g2);color:var(--white);}
 .btn-secondary{background:var(--cream2);color:var(--navy);}
-/* Close button inside modal (extra) */
-.modal-close-icon{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.05);border:none;border-radius:30px;width:32px;height:32px;font-size:1.2rem;cursor:pointer;color:var(--muted);transition:all .2s;display:flex;align-items:center;justify-content:center;}
-.modal-close-icon:hover{background:rgba(0,0,0,0.1);}
 
-/* ─── LEARN PAGE SUB-TABS ─── */
-.sub-tabs{display:flex;gap:7px;margin-bottom:14px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;}
+.sub-tabs{display:flex;gap:7px;margin-bottom:14px;overflow-x:auto;padding-bottom:4px;}
 .sub-tabs::-webkit-scrollbar{display:none;}
 .sub-tab{flex-shrink:0;padding:7px 16px;border-radius:50px;border:2px solid var(--g3);background:transparent;font-family:'Reem Kufi',sans-serif;font-size:.85rem;font-weight:600;color:var(--g1);cursor:pointer;transition:all .2s;}
 .sub-tab.active{background:var(--g1);color:var(--white);border-color:var(--g1);}
 .sub-section{display:none;}
 .sub-section.active{display:block;}
 
-/* ─── HARAKAT ─── */
 .harakat-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
 @media(min-width:480px){.harakat-grid{grid-template-columns:repeat(3,1fr);}}
-.harakat-card{background:var(--white);border-radius:var(--rr);padding:16px 12px;box-shadow:var(--sh);cursor:pointer;transition:transform .18s,box-shadow .18s;border-top:4px solid;text-align:center;}
+.harakat-card{background:var(--white);border-radius:var(--rr);padding:16px 12px;box-shadow:var(--sh);cursor:pointer;transition:transform .18s;border-top:4px solid;text-align:center;}
 .harakat-card:active{transform:scale(.95);}
-.harakat-card:hover{transform:translateY(-3px);box-shadow:var(--sh2);}
-.har-ex{font-family:'Reem Kufi','Amiri Quran',serif;font-size:3.2rem;line-height:1.2;margin-bottom:3px;}
+.har-ex{font-family:'Reem Kufi','Amiri Quran',serif;font-size:3.2rem;line-height:1.2;}
 .har-name-ar{font-family:'Reem Kufi',sans-serif;font-size:.95rem;font-weight:700;color:var(--g1);margin:5px 0 2px;}
 .har-name-ku{font-size:.75rem;color:var(--muted);}
 .har-badge{display:inline-block;margin-top:7px;background:var(--cream2);padding:3px 9px;border-radius:50px;font-size:.72rem;color:var(--navy);font-weight:700;}
 
-/* ─── WORDS ─── */
 .words-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
 @media(min-width:480px){.words-grid{grid-template-columns:repeat(3,1fr);}}
-.word-card{background:var(--white);border-radius:var(--rr);padding:15px 11px;box-shadow:var(--sh);cursor:pointer;transition:transform .18s;border-right:4px solid;text-align:center;}
+.word-card{background:var(--white);border-radius:var(--rr);padding:15px 11px;box-shadow:var(--sh);cursor:pointer;border-right:4px solid;text-align:center;}
 .word-card:active{transform:scale(.95);}
 .word-ar{font-family:'Amiri Quran','Reem Kufi',serif;font-size:1.7rem;color:var(--navy);line-height:1.4;margin-bottom:7px;}
 .word-ku{font-size:.82rem;font-weight:700;}
 .word-meaning{font-size:.72rem;color:var(--muted);margin-top:2px;}
 
-/* ─── SURAHS ─── */
-.surah-tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:7px;margin-bottom:14px;scrollbar-width:none;}
+.surah-tabs{display:flex;gap:7px;overflow-x:auto;padding-bottom:7px;margin-bottom:14px;}
 .surah-tabs::-webkit-scrollbar{display:none;}
 .surah-tab{flex-shrink:0;padding:7px 14px;border-radius:50px;border:2px solid var(--g3);background:transparent;font-family:'Reem Kufi',sans-serif;font-size:.83rem;font-weight:600;color:var(--g1);cursor:pointer;transition:all .2s;}
 .surah-tab.active{background:var(--g1);color:var(--white);border-color:var(--g1);}
-.surah-card{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:20px;padding:18px 14px;margin-bottom:14px;box-shadow:0 6px 28px rgba(10,22,40,.28);position:relative;}
-/* close button for each surah card? we add a clear close button inside surah page (X) to close recitation? Actually add separate close for game but user requested close button to each game. We have game modes with reset/exit. Also added close for writing area. Good. */
+.surah-card{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:20px;padding:18px 14px;margin-bottom:14px;box-shadow:0 6px 28px rgba(10,22,40,.28);}
 .surah-title-ar{font-family:'Reem Kufi',sans-serif;font-size:1.3rem;font-weight:700;color:var(--gold);}
 .surah-title-ku{font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:10px;}
 .verse-row{display:flex;align-items:flex-start;gap:9px;padding:8px;border-bottom:1px solid rgba(255,255,255,.07);cursor:pointer;border-radius:8px;transition:background .2s;}
 .verse-row:hover,.verse-row.playing{background:rgba(29,191,150,.14);}
 .verse-num{width:26px;height:26px;flex-shrink:0;background:rgba(245,197,24,.18);border:1.5px solid rgba(245,197,24,.38);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Reem Kufi',sans-serif;font-size:.65rem;color:var(--gold);font-weight:700;}
 .verse-text{font-family:'Amiri Quran',serif;font-size:1.2rem;color:rgba(255,255,255,.9);line-height:2;flex:1;}
-.verse-row.playing .verse-text{color:var(--g3);}
 .surah-ctrls{display:flex;gap:9px;margin-top:11px;}
 .ctrl-btn{flex:1;padding:10px;border:none;border-radius:11px;font-family:'Tajawal',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;transition:transform .15s;display:flex;align-items:center;justify-content:center;gap:5px;}
 .ctrl-btn:active{transform:scale(.95);}
 .ctrl-play{background:var(--g2);color:var(--white);}
 .ctrl-rep{background:rgba(255,255,255,.1);color:var(--white);border:1px solid rgba(255,255,255,.2);}
 
-/* ─── WRITING PAGE with close button ─── */
 .write-letters-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:18px;}
 @media(min-width:480px){.write-letters-grid{grid-template-columns:repeat(7,1fr);}}
-.wl-btn{border:none;border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;font-family:'Reem Kufi',sans-serif;font-size:1.7rem;font-weight:700;color:var(--white);box-shadow:0 3px 10px rgba(0,0,0,.12);transition:transform .18s,box-shadow .18s;position:relative;}
+.wl-btn{border:none;border-radius:12px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;font-family:'Reem Kufi',sans-serif;font-size:1.7rem;font-weight:700;color:var(--white);box-shadow:0 3px 10px rgba(0,0,0,.12);transition:transform .18s;position:relative;}
 .wl-btn:active{transform:scale(.88);}
-.wl-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.16);}
-.wl-done-dot{position:absolute;top:4px;left:4px;width:8px;height:8px;background:var(--gold);border-radius:50%;box-shadow:0 0 5px rgba(245,197,24,.8);}
-
+.wl-done-dot{position:absolute;top:4px;left:4px;width:8px;height:8px;background:var(--gold);border-radius:50%;}
 .write-area{background:var(--white);border-radius:20px;box-shadow:var(--sh2);overflow:hidden;max-width:400px;margin:0 auto;}
 .write-header{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:14px 18px;display:flex;align-items:center;justify-content:space-between;}
-.write-letter-display{font-family:'Reem Kufi','Amiri Quran',serif;font-size:3.5rem;font-weight:700;line-height:1;}
+.write-letter-display{font-family:'Reem Kufi','Amiri Quran',serif;font-size:3.5rem;font-weight:700;}
 .write-letter-info{text-align:left;}
 .write-letter-name{font-family:'Reem Kufi',sans-serif;font-size:1.1rem;font-weight:700;color:var(--gold);}
-.write-letter-phon{font-family:monospace;font-size:.8rem;color:rgba(255,255,255,.55);margin-top:2px;}
-.write-letter-ku{font-size:.8rem;color:rgba(255,255,255,.45);}
-.write-canvas-wrap{position:relative;background:#f8f4ee;display:flex;justify-content:center;align-items:center;padding:10px;}
+.write-letter-phon{font-family:monospace;font-size:.8rem;color:rgba(255,255,255,.55);}
+.write-canvas-wrap{background:#f8f4ee;display:flex;justify-content:center;align-items:center;padding:10px;}
 #writeCanvas{display:block;border-radius:12px;touch-action:none;background:#fff;cursor:crosshair;border:2.5px dashed rgba(29,191,150,.3);}
 .write-btns-row{display:flex;gap:10px;padding:14px;}
-.write-btn{flex:1;padding:11px;border:none;border-radius:12px;font-family:'Tajawal',sans-serif;font-size:.92rem;font-weight:700;cursor:pointer;transition:transform .15s;}
-.write-btn:active{transform:scale(.94);}
+.write-btn{flex:1;padding:11px;border:none;border-radius:12px;font-family:'Tajawal',sans-serif;font-size:.92rem;font-weight:700;cursor:pointer;}
 .write-btn-clear{background:#FFE8E8;color:var(--coral);}
 .write-btn-check{background:var(--g2);color:var(--white);}
 .write-btn-next{background:var(--navy2);color:var(--white);}
 .write-praise{display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;font-family:'Reem Kufi',sans-serif;font-size:1.1rem;font-weight:700;color:var(--g1);animation:popIn .4s;}
-.write-step-hint{padding:10px 16px;font-size:.82rem;color:var(--muted);text-align:center;line-height:1.6;}
-.write-close-btn{background:transparent;border:none;color:rgba(255,255,255,.7);font-size:1.4rem;cursor:pointer;padding:4px;transition:transform .2s;}
 
-/* GAME COMPONENTS */
 .game-container{max-width:480px;margin:0 auto;}
 .game-modes-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:4px;}
 .mode-card{background:var(--white);border-radius:var(--rr);padding:16px 10px;text-align:center;cursor:pointer;box-shadow:var(--sh);border:2px solid transparent;transition:all .18s;}
@@ -181,95 +153,135 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .mode-card:active{transform:scale(.94);}
 .mode-icon{font-size:2rem;margin-bottom:6px;}
 .mode-label{font-family:'Reem Kufi',sans-serif;font-size:.88rem;font-weight:700;color:var(--navy);}
-.mode-desc{font-size:.68rem;color:var(--muted);margin-top:2px;}
+.mode-desc{font-size:.68rem;color:var(--muted);}
 .game-hud{display:flex;align-items:center;background:var(--white);border-radius:var(--rr);padding:10px 14px;margin-bottom:14px;box-shadow:var(--sh);gap:12px;}
-/* GAME CLOSE BUTTON: small circle to exit game */
-.game-exit-btn{background:rgba(255,107,107,0.15);border:none;border-radius:40px;padding:6px 12px;font-size:.7rem;font-weight:bold;color:var(--coral);cursor:pointer;display:flex;align-items:center;gap:4px;margin-right:auto;transition:all .2s;}
-.game-exit-btn:active{transform:scale(.9);}
-.game-question{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:22px;padding:28px 18px;text-align:center;box-shadow:0 8px 30px rgba(10,22,40,.28);margin-bottom:18px;}
+.prog-wrap{flex:1;background:var(--cream2);border-radius:50px;height:9px;overflow:hidden;}
+.prog-inner{height:100%;background:linear-gradient(to right,var(--g3),var(--g1));border-radius:50px;transition:width .4s ease;}
+.game-question{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:22px;padding:28px 18px;text-align:center;margin-bottom:18px;}
+.game-qlabel{font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:10px;}
+.game-qitem{font-family:'Reem Kufi','Amiri Quran',serif;font-size:4.5rem;font-weight:700;color:var(--white);}
 .game-opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
-.game-opt{background:var(--white);border:2.5px solid transparent;border-radius:var(--rr);padding:13px 8px;font-family:'Reem Kufi',sans-serif;font-size:.98rem;font-weight:700;color:var(--navy);cursor:pointer;transition:all .2s;box-shadow:var(--sh);text-align:center;}
+.game-opt{background:var(--white);border:2.5px solid transparent;border-radius:var(--rr);padding:13px 8px;font-family:'Reem Kufi',sans-serif;font-size:.98rem;font-weight:700;color:var(--navy);cursor:pointer;text-align:center;}
+.game-opt:active{transform:scale(.93);}
 .game-opt.correct{background:var(--g2);color:var(--white);}
-.game-opt.wrong{background:#ffe2e2;border-color:var(--coral);animation:shake .4s;}
+.game-opt.wrong{background:#ffe2e2;border-color:var(--coral);}
 .game-feedback{background:var(--white);border-radius:var(--rr);padding:20px 14px;text-align:center;margin-top:14px;}
-.hidden{display:none!important;}
+.game-feedback.hidden{display:none;}
 .btn-next{background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--white);border:none;border-radius:11px;padding:11px 28px;font-family:'Tajawal',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;}
 
-/* Memory & Spot grids */
 .memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
 .mem-card{aspect-ratio:1;border-radius:12px;cursor:pointer;position:relative;transform-style:preserve-3d;transition:transform .4s;}
 .mem-card.flipped{transform:rotateY(180deg);}
 .mem-card.matched{opacity:.45;pointer-events:none;}
 .mem-face,.mem-back{position:absolute;inset:0;border-radius:12px;display:flex;align-items:center;justify-content:center;backface-visibility:hidden;}
 .mem-back{background:linear-gradient(135deg,var(--g1),var(--g2));font-size:1.6rem;color:var(--white);}
-.mem-face{transform:rotateY(180deg);font-family:'Reem Kufi','Amiri Quran',serif;font-size:1.1rem;}
+.mem-face{transform:rotateY(180deg);font-family:'Reem Kufi','Amiri Quran',serif;font-size:1.1rem;background:var(--cream2);color:var(--navy);}
+.mem-face.is-letter{font-size:1.8rem;}
+
+.spot-target{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:18px;padding:14px;text-align:center;margin-bottom:12px;}
+.spot-target-letter{font-family:'Reem Kufi','Amiri Quran',serif;font-size:3.8rem;font-weight:700;color:var(--gold);}
 .spot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-.spot-cell{aspect-ratio:1;border-radius:12px;background:var(--white);box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;font-family:'Reem Kufi','Amiri Quran',serif;font-size:2rem;font-weight:700;cursor:pointer;}
+.spot-cell{aspect-ratio:1;border-radius:12px;background:var(--white);box-shadow:var(--sh);display:flex;align-items:center;justify-content:center;font-family:'Reem Kufi','Amiri Quran',serif;font-size:2rem;font-weight:700;cursor:pointer;color:var(--navy);}
 .spot-cell.found{background:var(--g3);color:var(--white);}
+.spot-cell.wrong-tap{background:#ffe2e2;border-color:var(--coral);}
+
 .game-end{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:22px;padding:28px 18px;text-align:center;color:var(--white);}
-.confetti-piece{position:fixed;z-index:999;pointer-events:none;animation:confettiFall 2.5s ease-in forwards;}
-@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.game-end.hidden{display:none;}
+.end-title{font-family:'Reem Kufi',sans-serif;font-size:1.5rem;font-weight:700;color:var(--gold);margin-bottom:6px;}
+
+/* Drag & Drop Group Game (2 player / solo) */
+.dragdrop-area{background:var(--white);border-radius:24px;padding:20px;margin-top:10px;}
+.drag-group-container{display:flex;gap:15px;justify-content:center;margin-bottom:25px;}
+.drag-group{flex:1;background:var(--cream2);border-radius:20px;padding:15px;min-height:280px;border:3px dashed var(--g3);text-align:center;}
+.drag-group.active-group{border-color:var(--gold);background:#fff6e5;}
+.group-title{font-family:'Reem Kufi',sans-serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;}
+.group-score{background:var(--g1);color:var(--white);padding:2px 12px;border-radius:50px;font-size:.9rem;}
+.drag-letters-pool{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:20px;padding:15px;background:#f4f0e8;border-radius:28px;}
+.drag-letter{width:70px;height:70px;background:linear-gradient(135deg,var(--g1),var(--g2));border-radius:20px;display:flex;align-items:center;justify-content:center;font-family:'Reem Kufi','Amiri Quran',serif;font-size:2rem;font-weight:bold;color:white;cursor:grab;box-shadow:0 6px 14px rgba(0,0,0,.15);transition:transform .1s;}
+.drag-letter:active{cursor:grabbing;opacity:.7;}
+.drag-letter.dragging{opacity:.4;}
+.group-letter{display:inline-block;width:55px;height:55px;background:#fff;border-radius:16px;margin:4px;font-size:1.8rem;font-family:'Reem Kufi','Amiri Quran',serif;text-align:center;line-height:55px;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+.drag-ctrl-buttons{display:flex;gap:12px;justify-content:center;margin-top:15px;}
+.drag-btn{padding:10px 20px;border:none;border-radius:40px;font-weight:bold;font-family:'Tajawal';cursor:pointer;}
+.drag-btn-reset{background:var(--coral);color:white;}
+.drag-btn-mode{background:var(--navy2);color:white;}
+.winner-message{font-size:1.3rem;font-weight:bold;color:var(--gold);margin-top:12px;}
+.hidden{display:none!important;}
 </style>
 </head>
 <body>
+
 <div id="topbar"><div class="logo">🌙 نووری قورئان</div><div id="stars-display">⭐ <span id="stars-count">0</span></div></div>
-<div id="page-home" class="page active"><div id="starBg"></div><div class="home-moon">🌙</div><div class="home-title">نووری قورئان</div><div class="home-sub">فێربوونی قورئانی پیرۆز بۆ منداڵان ✨</div><div class="home-grid"><div class="hcard" onclick="goPage('learn')"><div class="hi">أ</div><div class="hl">فێربوون</div><div class="hc">پیت، حەرەکات، وشە</div></div><div class="hcard" onclick="goPage('write')"><div class="hi">✍️</div><div class="hl">نووسین</div><div class="hc">تمرینی نووسین</div></div><div class="hcard" onclick="goPage('surahs')"><div class="hi">☪️</div><div class="hl">سووراتەکان</div><div class="hc">٦ سووره</div></div><div class="hcard" onclick="goPage('game')"><div class="hi">🎮</div><div class="hl">یاری</div><div class="hc">١٠ جۆر یاری</div></div></div></div>
+
+<div id="page-home" class="page active"><div id="starBg"></div><div class="home-moon">🌙</div><div class="home-title">نووری قورئان</div><div class="home-sub">فێربوونی قورئانی پیرۆز بۆ منداڵان ✨</div><div class="home-grid"><div class="hcard" onclick="goPage('learn')"><div class="hi">أ</div><div class="hl">فێربوون</div><div class="hc">پیت، حەرەکات، وشە</div></div><div class="hcard" onclick="goPage('write')"><div class="hi">✍️</div><div class="hl">نووسین</div><div class="hc">تمرینی نووسین</div></div><div class="hcard" onclick="goPage('surahs')"><div class="hi">☪️</div><div class="hl">سووراتەکان</div><div class="hc">٦ سووره</div></div><div class="hcard" onclick="goPage('game')"><div class="hi">🎮</div><div class="hl">یاری</div><div class="hc">١١+ جۆر یاری</div></div></div></div>
 
 <div id="page-learn" class="page"><div class="sub-tabs"><button class="sub-tab active" onclick="showSubTab('letters')">📚 پیتەکان</button><button class="sub-tab" onclick="showSubTab('harakat')">✨ حەرەکات</button><button class="sub-tab" onclick="showSubTab('words')">🌿 وشەکان</button></div><div id="sub-letters" class="sub-section active"><div class="letters-grid" id="lettersGrid"></div></div><div id="sub-harakat" class="sub-section"><div class="harakat-grid" id="harakatGrid"></div></div><div id="sub-words" class="sub-section"><div class="words-grid" id="wordsGrid"></div></div></div>
 
-<div id="page-write" class="page"><div class="section-title">✍️ تمرینی نووسینی پیتەکان</div><div id="writeSelect"><p style="font-size:.82rem;color:var(--muted);margin-bottom:12px;">پیتێک هەڵبژێرە بۆ تمرین:</p><div class="write-letters-grid" id="writeLettersGrid"></div></div><div id="writeArea" class="write-area hidden"><div class="write-header"><div id="writeLetterDisplay" class="write-letter-display" style="color:var(--gold)">ب</div><div class="write-letter-info"><div class="write-letter-name" id="wLetterName">باء</div><div class="write-letter-phon" id="wLetterPhon">[b]</div><div class="write-letter-ku" id="wLetterKu">با</div></div><button class="write-close-btn" onclick="closeWriteArea()">✕</button></div><div class="write-canvas-wrap"><canvas id="writeCanvas" width="320" height="280"></canvas></div><div class="write-step-hint" id="writeHint">لەسەر کانڤاسەکە پیتەکە بخەرەوە ← دەستت لەسەری بگرە</div><div id="writePraise" class="write-praise hidden">🌟 ئاپرین! زۆر باشت کرد! 🌟</div><div class="write-btns-row"><button class="write-btn write-btn-clear" onclick="clearCanvas()">🗑️ پاككردن</button><button class="write-btn write-btn-check" onclick="praiseWrite()">✅ ئاپرین!</button><button class="write-btn write-btn-next" onclick="nextWriteLetter()">دواتر ←</button></div></div></div>
+<div id="page-write" class="page"><div class="section-title">✍️ تمرینی نووسینی پیتەکان</div><div id="writeSelect"><p style="font-size:.82rem;color:var(--muted);margin-bottom:12px;">پیتێک هەڵبژێرە بۆ تمرین:</p><div class="write-letters-grid" id="writeLettersGrid"></div></div><div id="writeArea" class="write-area hidden"><div class="write-header"><div id="writeLetterDisplay" class="write-letter-display" style="color:var(--gold)">ب</div><div class="write-letter-info"><div class="write-letter-name" id="wLetterName">باء</div><div class="write-letter-phon" id="wLetterPhon">[b]</div><div class="write-letter-ku" id="wLetterKu">با</div></div><button class="write-close-btn" onclick="closeWriteArea()">✕</button></div><div class="write-canvas-wrap"><canvas id="writeCanvas" width="320" height="280"></canvas></div><div class="write-step-hint" id="writeHint">لەسەر کانڤاسەکە پیتەکە بخەرەوە</div><div id="writePraise" class="write-praise hidden">🌟 ئاپرین! زۆر باشت کرد!</div><div class="write-btns-row"><button class="write-btn write-btn-clear" onclick="clearCanvas()">🗑️ پاككردن</button><button class="write-btn write-btn-check" onclick="praiseWrite()">✅ ئاپرین!</button><button class="write-btn write-btn-next" onclick="nextWriteLetter()">دواتر ←</button></div></div></div>
 
 <div id="page-surahs" class="page"><div class="section-title">☪️ سووراتە کورتەکان</div><div class="surah-tabs" id="surahTabs"></div><div id="surahContent"></div></div>
 
-<div id="page-game" class="page"><div class="section-title">🎮 ١٠ جۆر یاری <button id="globalGameExitBtn" class="game-exit-btn" style="margin-right:auto;" onclick="resetGame()">✕ داخستن</button></div><div class="game-container"><div id="gameModes"><div class="game-modes-grid" id="gameModesGrid"></div></div><div id="gamePlay" class="hidden"><div class="game-hud"><div class="hud-score-wrap"><div class="hud-lbl">خاڵ</div><div class="hud-val" id="hudScore">0</div></div><div class="prog-wrap"><div class="prog-inner" id="progBar" style="width:0%"></div></div><div class="hud-score-wrap"><div class="hud-lbl">پرسیار</div><div class="hud-val" id="hudQ">1/10</div></div><button class="game-exit-btn" onclick="resetGame()">✕ یاری ببڕە</button></div><div class="game-question"><div class="game-qlabel" id="qLabel">ناوی چییە؟</div><div class="game-qitem" id="qItem">ب</div></div><div class="game-opts" id="gameOpts"></div><div class="game-feedback hidden" id="gameFeedback"><div class="fb-emoji" id="fbEmoji">✅</div><div class="fb-title" id="fbTitle">ئاپرین!</div><div class="fb-sub" id="fbSub"></div><button class="btn-next" onclick="nextQuestion()">دواتر ←</button></div></div><div id="gameMemory" class="hidden"><div class="game-hud"><div class="hud-score-wrap"><div class="hud-lbl">جووت</div><div class="hud-val" id="memMatched">0</div></div><button class="game-exit-btn" onclick="resetGame()">✕ داخستن</button></div><div class="memory-grid" id="memoryGrid"></div></div><div id="gameSpot" class="hidden"><div class="game-hud"><div class="spot-remain" id="spotRemain">پیداویست: 0</div><div class="spot-mistakes" id="spotMistakes">هەڵەکان: 0</div><button class="game-exit-btn" onclick="resetGame()">✕ داخستن</button></div><div class="spot-target"><div class="spot-target-label">ئەم پیتەیە بدۆزەرەوە ⬇</div><div class="spot-target-letter" id="spotTarget">ب</div></div><div class="spot-grid" id="spotGrid"></div></div><div id="gameEnd" class="game-end hidden"><div class="end-trophy">🏆</div><div class="end-title">یاری تەواو بوو!</div><div class="end-score" id="endScore"></div><div class="stars-earned" id="endStars"></div><button class="btn-next" onclick="resetGame()">🔄 دووبارە بکەرەوە</button></div></div></div>
+<div id="page-game" class="page"><div class="section-title">🎮 یارییەکان (تاک و دوو کەسی)</div><div class="game-container"><div id="gameModes"><div class="game-modes-grid" id="gameModesGrid"></div></div><div id="gamePlay" class="hidden"><div class="game-hud"><div class="prog-wrap"><div class="prog-inner" id="progBar" style="width:0%"></div></div><div class="hud-score-wrap"><div class="hud-lbl">خاڵ</div><div class="hud-val" id="hudScore">0</div></div></div><div class="game-question"><div class="game-qlabel" id="qLabel">پرسیار</div><div class="game-qitem" id="qItem">ب</div></div><div class="game-opts" id="gameOpts"></div><div class="game-feedback hidden" id="gameFeedback"><div class="fb-emoji">✅</div><div class="fb-title">ئاپرین!</div><button class="btn-next" onclick="nextQuestion()">دواتر ←</button></div></div><div id="gameMemory" class="hidden"><div class="memory-grid" id="memoryGrid"></div></div><div id="gameSpot" class="hidden"><div class="spot-target"><div class="spot-target-letter" id="spotTarget">ب</div></div><div class="spot-grid" id="spotGrid"></div></div><div id="gameDragDrop" class="hidden"><div class="dragdrop-area"><div class="drag-group-container"><div class="drag-group" id="groupA"><div class="group-title">گرووپی یەکەم <span class="group-score" id="groupAScore">0</span></div><div id="groupALetters" class="group-letters"></div></div><div class="drag-group" id="groupB"><div class="group-title">گرووپی دووەم <span class="group-score" id="groupBScore">0</span></div><div id="groupBLetters" class="group-letters"></div></div></div><div id="dragLettersPool" class="drag-letters-pool"></div><div class="drag-ctrl-buttons"><button class="drag-btn drag-btn-reset" onclick="resetDragGame()">🔁 دووبارە</button><button class="drag-btn drag-btn-mode" onclick="toggleDragMode()">👥 گۆڕینی یاریزان</button></div><div id="dragWinnerMsg" class="winner-message"></div></div></div><div id="gameEnd" class="game-end hidden"><div class="end-title">یاری تەواو بوو!</div><button class="btn-next" onclick="resetGame()">🔄 دووبارە</button></div></div></div>
 
-<div id="letter-modal" class="hidden"><div class="modal-card"><button class="modal-close-icon" onclick="closeModal()">✕</button><div class="modal-letter" id="modalLetter">ب</div><div class="modal-name" id="modalName">باء</div><div class="modal-ku" id="modalKu">با</div><div class="modal-phon" id="modalPhon">[b]</div><div class="forms-grid" id="modalForms"></div><div class="modal-btns"><button class="btn-m btn-primary" onclick="speakModal()">🔊 گوێبگرە</button><button class="btn-m btn-secondary" onclick="closeModal()">✕ داخستن</button></div></div></div>
+<div id="letter-modal" class="hidden" onclick="closeModal(event)"><div class="modal-card" onclick="event.stopPropagation()"><div class="modal-letter" id="modalLetter">ب</div><div class="modal-name" id="modalName">باء</div><div class="modal-ku" id="modalKu">با</div><div class="modal-phon" id="modalPhon">[b]</div><div class="forms-grid" id="modalForms"></div><div class="modal-btns"><button class="btn-m btn-primary" onclick="speakModal()">🔊 گوێبگرە</button><button class="btn-m btn-secondary" onclick="closeModal()">✕ داخستن</button></div></div></div>
 
 <div id="bottom-nav"><button class="nav-btn active" data-page="home" onclick="goPage('home')"><span class="nav-icon">🏠</span><span class="nav-label">سەرەتا</span></button><button class="nav-btn" data-page="learn" onclick="goPage('learn')"><span class="nav-icon">أ</span><span class="nav-label">فێربوون</span></button><button class="nav-btn" data-page="write" onclick="goPage('write')"><span class="nav-icon">✍️</span><span class="nav-label">نووسین</span></button><button class="nav-btn" data-page="surahs" onclick="goPage('surahs')"><span class="nav-icon">☪️</span><span class="nav-label">سووره</span></button><button class="nav-btn" data-page="game" onclick="goPage('game')"><span class="nav-icon">🎮</span><span class="nav-label">یاری</span></button></div>
 
 <script>
-// DATA (condensed but intact)
 const COLORS=['#FF6B6B','#FF9500','#F5C518','#30D158','#0A84FF','#6E5CE6','#BF5AF2','#FF375F','#32D74B','#0084FF','#FF9F0A','#AF52DE'];
-const LETTERS=[{ar:'ا',name:'أَلِف',ku:'ئەلف',phon:'[aa]',forms:{iso:'ا',ini:'ا',mid:'ـا',fin:'ـا'},sound:'ألف'},{ar:'ب',name:'بَاء',ku:'با',phon:'[b]',forms:{iso:'ب',ini:'بـ',mid:'ـبـ',fin:'ـب'},sound:'باء'},{ar:'ت',name:'تَاء',ku:'تا',phon:'[t]',forms:{iso:'ت',ini:'تـ',mid:'ـتـ',fin:'ـت'},sound:'تاء'},{ar:'ث',name:'ثَاء',ku:'سا',phon:'[th]',forms:{iso:'ث',ini:'ثـ',mid:'ـثـ',fin:'ـث'},sound:'ثاء'},{ar:'ج',name:'جِيم',ku:'جیم',phon:'[j]',forms:{iso:'ج',ini:'جـ',mid:'ـجـ',fin:'ـج'},sound:'جيم'}];
-for(let i=5;i<29;i++) LETTERS.push({ar:'م',name:'مِيم',ku:'میم',phon:'[m]',forms:{iso:'م',ini:'مـ',mid:'ـمـ',fin:'ـم'},sound:'ميم'});
-const HARAKAT=[{ex:'بَ',nameAr:'فَتْحَة',ku:'فەتحە',spk:'فتحة',example:'كَتَبَ'}];
-const WORDS=[{ar:'رَبٌّ',ku:'پەروەردگار'}];
-const SURAHS=[{name:'الفَاتِحَة',verses:['بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ']}];
-const GAME_MODES=[{id:'letter-name',icon:'أ',label:'پیت → ناو'}];
-
-let stars=parseInt(localStorage.getItem('quranStars')||'0'); let currentSurah=0; let writeLetter=0; let writeDone=new Set(JSON.parse(localStorage.getItem('writeDone')||'[]'));
-let gameMode='', gameQs=[], gameIdx=0, gameScore=0, gameAnswered=false; let memCards=[],memFlipped=[],memMatched=0; let spotTarget='',spotFound=0,spotTotal=0;
-
+const LETTERS=[{ar:'ا',name:'أَلِف',ku:'ئەلف',phon:'[aa]',forms:{iso:'ا',ini:'ا',mid:'ـا',fin:'ـا'},sound:'ألف'},{ar:'ب',name:'بَاء',ku:'با',phon:'[b]',forms:{iso:'ب',ini:'بـ',mid:'ـبـ',fin:'ـب'},sound:'باء'},{ar:'ت',name:'تَاء',ku:'تا',phon:'[t]',forms:{iso:'ت',ini:'تـ',mid:'ـتـ',fin:'ـت'},sound:'تاء'},{ar:'ث',name:'ثَاء',ku:'سا',phon:'[th]',forms:{iso:'ث',ini:'ثـ',mid:'ـثـ',fin:'ـث'},sound:'ثاء'},{ar:'ج',name:'جِيم',ku:'جیم',phon:'[j]',forms:{iso:'ج',ini:'جـ',mid:'ـجـ',fin:'ـج'},sound:'جيم'},{ar:'ح',name:'حَاء',ku:'حا',phon:'[H]',forms:{iso:'ح',ini:'حـ',mid:'ـحـ',fin:'ـح'},sound:'حاء'},{ar:'خ',name:'خَاء',ku:'خا',phon:'[kh]',forms:{iso:'خ',ini:'خـ',mid:'ـخـ',fin:'ـخ'},sound:'خاء'},{ar:'د',name:'دَال',ku:'دال',phon:'[d]',forms:{iso:'د',ini:'د',mid:'ـد',fin:'ـد'},sound:'دال'},{ar:'ذ',name:'ذَال',ku:'زال',phon:'[dh]',forms:{iso:'ذ',ini:'ذ',mid:'ـذ',fin:'ـذ'},sound:'ذال'},{ar:'ر',name:'رَاء',ku:'ڕا',phon:'[r]',forms:{iso:'ر',ini:'ر',mid:'ـر',fin:'ـر'},sound:'راء'},{ar:'ز',name:'زَاي',ku:'زای',phon:'[z]',forms:{iso:'ز',ini:'ز',mid:'ـز',fin:'ـز'},sound:'زاي'},{ar:'س',name:'سِين',ku:'سین',phon:'[s]',forms:{iso:'س',ini:'سـ',mid:'ـسـ',fin:'ـس'},sound:'سين'},{ar:'ش',name:'شِين',ku:'شین',phon:'[sh]',forms:{iso:'ش',ini:'شـ',mid:'ـشـ',fin:'ـش'},sound:'شين'},{ar:'ص',name:'صَاد',ku:'صاد',phon:'[S]',forms:{iso:'ص',ini:'صـ',mid:'ـصـ',fin:'ـص'},sound:'صاد'},{ar:'ض',name:'ضَاد',ku:'زواد',phon:'[D]',forms:{iso:'ض',ini:'ضـ',mid:'ـضـ',fin:'ـض'},sound:'ضاد'},{ar:'ط',name:'طَاء',ku:'تا',phon:'[T]',forms:{iso:'ط',ini:'طـ',mid:'ـطـ',fin:'ـط'},sound:'طاء'},{ar:'ظ',name:'ظَاء',ku:'زا',phon:'[Z]',forms:{iso:'ظ',ini:'ظـ',mid:'ـظـ',fin:'ـظ'},sound:'ظاء'},{ar:'ع',name:'عَين',ku:'عەین',phon:'[ʕ]',forms:{iso:'ع',ini:'عـ',mid:'ـعـ',fin:'ـع'},sound:'عين'},{ar:'غ',name:'غَين',ku:'غەین',phon:'[gh]',forms:{iso:'غ',ini:'غـ',mid:'ـغـ',fin:'ـغ'},sound:'غين'},{ar:'ف',name:'فَاء',ku:'فا',phon:'[f]',forms:{iso:'ف',ini:'فـ',mid:'ـفـ',fin:'ـف'},sound:'فاء'},{ar:'ق',name:'قَاف',ku:'قاف',phon:'[q]',forms:{iso:'ق',ini:'قـ',mid:'ـقـ',fin:'ـق'},sound:'قاف'},{ar:'ك',name:'كَاف',ku:'کاف',phon:'[k]',forms:{iso:'ك',ini:'كـ',mid:'ـكـ',fin:'ـك'},sound:'كاف'},{ar:'ل',name:'لَام',ku:'لام',phon:'[l]',forms:{iso:'ل',ini:'لـ',mid:'ـلـ',fin:'ـل'},sound:'لام'},{ar:'م',name:'مِيم',ku:'میم',phon:'[m]',forms:{iso:'م',ini:'مـ',mid:'ـمـ',fin:'ـم'},sound:'ميم'},{ar:'ن',name:'نُون',ku:'نون',phon:'[n]',forms:{iso:'ن',ini:'نـ',mid:'ـنـ',fin:'ـن'},sound:'نون'},{ar:'ه',name:'هَاء',ku:'ها',phon:'[h]',forms:{iso:'ه',ini:'هـ',mid:'ـهـ',fin:'ـه'},sound:'هاء'},{ar:'و',name:'وَاو',ku:'واو',phon:'[w/oo]',forms:{iso:'و',ini:'و',mid:'ـو',fin:'ـو'},sound:'واو'},{ar:'ي',name:'يَاء',ku:'یا',phon:'[y/ee]',forms:{iso:'ي',ini:'يـ',mid:'ـيـ',fin:'ـي'},sound:'ياء'}];
+const HARAKAT=[{ex:'بَ',sym:'ـَ',nameAr:'فَتْحَة',ku:'فەتحە',desc:'ئە',spk:'فتحة'},{ex:'بِ',sym:'ـِ',nameAr:'كَسْرَة',ku:'کەسرە',desc:'ئی',spk:'كسرة'},{ex:'بُ',sym:'ـُ',nameAr:'ضَمَّة',ku:'زەمە',desc:'ئو',spk:'ضمة'}];
+const WORDS=[{ar:'ٱللَّهُ',ku:'خودا',clr:'#FF6B6B'},{ar:'رَبٌّ',ku:'پەروەردگار',clr:'#30D158'},{ar:'نُورٌ',ku:'ڕووناکی',clr:'#0A84FF'},{ar:'كِتَابٌ',ku:'کتێب',clr:'#6E5CE6'}];
+const SURAHS=[{name:'الفَاتِحَة',nameKu:'فاتیحە',num:1,verses:['بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ','ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ']},{name:'الإِخْلَاص',nameKu:'ئیخلاس',num:112,verses:['بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ','قُلْ هُوَ ٱللَّهُ أَحَدٌ']}];
+const GAME_MODES=[{id:'letter-name',icon:'أ',label:'پیت → ناو'},{id:'name-letter',icon:'ب؟',label:'ناو → پیت'},{id:'harakat',icon:'ـَ',label:'حەرەکات'},{id:'words',icon:'📖',label:'وشەکان'},{id:'memory',icon:'🃏',label:'کارتی جووت'},{id:'spot',icon:'🔍',label:'پیت بدۆزەوە'},{id:'dragdrop',icon:'🤝',label:'ڕاکێشان (2 کەس)'}];
+let stars=parseInt(localStorage.getItem('quranStars')||'0');let currentPage='home';let currentSurah=0;let writeLetter=0;let writeDone=new Set(JSON.parse(localStorage.getItem('writeDone')||'[]'));
+let gameMode='',gameQs=[],gameIdx=0,gameScore=0,gameAnswered=false;let memCards=[],memFlipped=[],memMatched=0;let spotTarget='',spotFound=0,spotTotal=0,spotMistakes=0;
+// drag drop state
+let dragLetters=[],groupAContent=[],groupBContent=[],currentDragPlayer='A',dragGameActive=false;
+function speak(txt){if(!window.speechSynthesis)return;speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(txt);u.lang='ar-SA';u.rate=0.7;speechSynthesis.speak(u);}
 function updateStars(add){stars=Math.min(99999,stars+add);localStorage.setItem('quranStars',stars);document.getElementById('stars-count').textContent=stars;}
-function speak(t,r=0.75){if(!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ar-SA';u.rate=r;speechSynthesis.speak(u);}
-function goPage(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+n).classList.add('active');}
-function showSubTab(t){document.querySelectorAll('.sub-section').forEach(s=>s.classList.remove('active'));document.getElementById('sub-'+t).classList.add('active');}
-function confetti(){for(let i=0;i<30;i++){let p=document.createElement('div');p.className='confetti-piece';p.style.cssText=`left:${Math.random()*100}%;top:-12px;width:7px;height:7px;background:#F5C518;animation-duration:1.5s;`;document.body.appendChild(p);setTimeout(()=>p.remove(),2000);}}
-function renderLetters(){document.getElementById('lettersGrid').innerHTML=LETTERS.map((l,i)=>`<div class="letter-card" style="background:${COLORS[i%COLORS.length]}" onclick="openLetterModal(${i})"><div class="lc-ar">${l.ar}</div><div class="lc-name">${l.name}</div></div>`).join('');}
-let modalIdx=0; function openLetterModal(i){modalIdx=i;const l=LETTERS[i];document.getElementById('modalLetter').textContent=l.ar;document.getElementById('modalName').textContent=l.name;document.getElementById('modalKu').textContent=l.ku;document.getElementById('modalPhon').textContent=l.phon;document.getElementById('modalForms').innerHTML=Object.entries(l.forms).map(([k,v])=>`<div class="form-cell"><div class="form-ar">${v}</div><div class="form-label">${k}</div></div>`).join('');document.getElementById('letter-modal').classList.remove('hidden');speak(l.sound);}
+function goPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+name).classList.add('active');document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.querySelector(`.nav-btn[data-page="${name}"]`).classList.add('active');currentPage=name;}
+function showSubTab(n){document.querySelectorAll('.sub-tab').forEach((t,i)=>{t.classList.toggle('active',['letters','harakat','words'][i]===n);});document.querySelectorAll('.sub-section').forEach(s=>s.classList.remove('active'));document.getElementById('sub-'+n).classList.add('active');}
+function renderLetters(){document.getElementById('lettersGrid').innerHTML=LETTERS.map((l,i)=>`<div class="letter-card" style="background:linear-gradient(135deg,${COLORS[i%COLORS.length]},${COLORS[i%COLORS.length]}70)" onclick="openLetterModal(${i})"><div class="lc-ar">${l.ar}</div><div class="lc-name">${l.name}</div><div class="lc-phon">${l.phon}</div></div>`).join('');}
+let modalIdx=0;
+function openLetterModal(i){modalIdx=i;let l=LETTERS[i];document.getElementById('modalLetter').textContent=l.ar;document.getElementById('modalName').textContent=l.name;document.getElementById('modalKu').textContent=l.ku;document.getElementById('modalPhon').textContent=l.phon;document.getElementById('modalForms').innerHTML=[['iso','تەکست'],['ini','سەرەتا'],['mid','ناوەڕاست'],['fin','کۆتایی']].map(([k,lbl])=>`<div class="form-cell"><div class="form-ar">${l.forms[k]}</div><div class="form-label">${lbl}</div></div>`).join('');document.getElementById('letter-modal').classList.remove('hidden');speak(l.sound);}
 function speakModal(){speak(LETTERS[modalIdx].sound);}
-function closeModal(){document.getElementById('letter-modal').classList.add('hidden');}
-function renderHarakat(){document.getElementById('harakatGrid').innerHTML=HARAKAT.map(h=>`<div class="harakat-card" onclick="speak('${h.spk}')"><div class="har-ex">${h.ex}</div><div class="har-name-ar">${h.nameAr}</div></div>`).join('');}
-function renderWords(){document.getElementById('wordsGrid').innerHTML=WORDS.map(w=>`<div class="word-card" onclick="speak('${w.ar}')"><div class="word-ar">${w.ar}</div><div class="word-ku">${w.ku}</div></div>`).join('');}
-function renderWriteGrid(){document.getElementById('writeLettersGrid').innerHTML=LETTERS.map((l,i)=>`<button class="wl-btn" style="background:${COLORS[i%COLORS.length]}" onclick="openWrite(${i})">${writeDone.has(i)?'⭐':''}${l.ar}</button>`).join('');}
-let canvas,ctx,isDrawing; function openWrite(i){writeLetter=i;const l=LETTERS[i];document.getElementById('writeLetterDisplay').textContent=l.ar;document.getElementById('wLetterName').textContent=l.name;document.getElementById('wLetterPhon').textContent=l.phon;document.getElementById('wLetterKu').textContent=l.ku;document.getElementById('writeSelect').classList.add('hidden');document.getElementById('writeArea').classList.remove('hidden');initCanvas();speak(l.sound);}
-function initCanvas(){canvas=document.getElementById('writeCanvas');ctx=canvas.getContext('2d');canvas.width=320;canvas.height=280;clearCanvas();setupEvents();}
-function clearCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.font='bold 70px "Reem Kufi"';ctx.fillStyle='rgba(29,191,150,0.2)';ctx.fillText(LETTERS[writeLetter].ar,canvas.width/2-30,canvas.height/2+20);document.getElementById('writePraise').classList.add('hidden');}
-function setupEvents(){let draw=(x,y)=>{ctx.lineTo(x,y);ctx.stroke();ctx.beginPath();ctx.moveTo(x,y);}; /* simplified */ canvas.onmousedown=e=>{isDrawing=true;ctx.beginPath();}; canvas.onmousemove=e=>{if(!isDrawing)return;ctx.lineWidth=4;ctx.lineCap='round';ctx.strokeStyle='#1A2E44';ctx.lineTo(e.offsetX,e.offsetY);ctx.stroke();ctx.beginPath();ctx.moveTo(e.offsetX,e.offsetY);}; canvas.onmouseup=()=>{isDrawing=false;ctx.beginPath();};}
-function praiseWrite(){writeDone.add(writeLetter);localStorage.setItem('writeDone',JSON.stringify([...writeDone]));document.getElementById('writePraise').classList.remove('hidden');confetti();updateStars(3);renderWriteGrid();}
+function closeModal(e){if(!e||e.target===document.getElementById('letter-modal'))document.getElementById('letter-modal').classList.add('hidden');}
+function renderHarakat(){document.getElementById('harakatGrid').innerHTML=HARAKAT.map(h=>`<div class="harakat-card" style="border-top-color:#0A84FF" onclick="speak('${h.spk}')"><div class="har-ex">${h.ex}</div><div class="har-name-ar">${h.nameAr}</div><div class="har-name-ku">${h.ku}</div><div class="har-badge">🔊 ${h.desc}</div></div>`).join('');}
+function renderWords(){document.getElementById('wordsGrid').innerHTML=WORDS.map(w=>`<div class="word-card" style="border-right-color:${w.clr}" onclick="speak('${w.ar}')"><div class="word-ar">${w.ar}</div><div class="word-ku">${w.ku}</div></div>`).join('');}
+function renderSurahs(){document.getElementById('surahTabs').innerHTML=SURAHS.map((s,i)=>`<button class="surah-tab ${i===0?'active':''}" onclick="selectSurah(${i})">${s.name}</button>`).join('');renderSurahContent(0);}
+function selectSurah(i){currentSurah=i;document.querySelectorAll('.surah-tab').forEach((t,j)=>t.classList.toggle('active',j===i));renderSurahContent(i);}
+function renderSurahContent(i){let s=SURAHS[i];document.getElementById('surahContent').innerHTML=`<div class="surah-card"><div class="surah-title-ar">${s.name}</div><div>${s.verses.map((v,j)=>`<div class="verse-row" onclick="speak('${v}')"><div class="verse-num">${j+1}</div><div class="verse-text">${v}</div></div>`).join('')}</div><div class="surah-ctrls"><button class="ctrl-btn ctrl-play" onclick="speak('${s.verses.join(' ')}')">▶ بیستنەوە</button></div></div>`;}
+function renderWriteGrid(){document.getElementById('writeLettersGrid').innerHTML=LETTERS.map((l,i)=>`<button class="wl-btn" style="background:linear-gradient(135deg,${COLORS[i%COLORS.length]},${COLORS[i%COLORS.length]}70)" onclick="openWrite(${i})">${writeDone.has(i)?'⭐':''}${l.ar}</button>`).join('');}
+let canvas,ctx,isDrawing=false,lastX,lastY;
+function openWrite(i){writeLetter=i;let l=LETTERS[i];document.getElementById('writeLetterDisplay').textContent=l.ar;document.getElementById('wLetterName').textContent=l.name;document.getElementById('wLetterPhon').textContent=l.phon;document.getElementById('wLetterKu').textContent=l.ku;document.getElementById('writeHint').textContent='خەت بکێشە';document.getElementById('writePraise').classList.add('hidden');document.getElementById('writeSelect').classList.add('hidden');document.getElementById('writeArea').classList.remove('hidden');initCanvas();speak(l.sound);}
+function initCanvas(){canvas=document.getElementById('writeCanvas');ctx=canvas.getContext('2d');let sz=Math.min(canvas.parentElement.clientWidth-20,320);canvas.width=sz;canvas.height=Math.round(sz*.875);clearCanvas();function getPos(e){let r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height};}function md(e){isDrawing=true;let p=getPos(e);lastX=p.x;lastY=p.y;}function mm(e){if(!isDrawing)return;let p=getPos(e);ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.strokeStyle='#1A2E44';ctx.lineWidth=4;ctx.stroke();lastX=p.x;lastY=p.y;}function mu(){isDrawing=false;}canvas.addEventListener('mousedown',md);canvas.addEventListener('mousemove',mm);canvas.addEventListener('mouseup',mu);canvas.addEventListener('touchstart',(e)=>{e.preventDefault();let t=e.touches[0];isDrawing=true;let p={x:(t.clientX-canvas.getBoundingClientRect().left)*canvas.width/canvas.clientWidth,y:(t.clientY-canvas.getBoundingClientRect().top)*canvas.height/canvas.clientHeight};lastX=p.x;lastY=p.y;});canvas.addEventListener('touchmove',(e)=>{e.preventDefault();if(!isDrawing)return;let t=e.touches[0];let p={x:(t.clientX-canvas.getBoundingClientRect().left)*canvas.width/canvas.clientWidth,y:(t.clientY-canvas.getBoundingClientRect().top)*canvas.height/canvas.clientHeight};ctx.beginPath();ctx.moveTo(lastX,lastY);ctx.lineTo(p.x,p.y);ctx.stroke();lastX=p.x;lastY=p.y;});canvas.addEventListener('touchend',()=>isDrawing=false);}
+function clearCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.font=`bold ${canvas.height*.6}px 'Reem Kufi'`;ctx.fillStyle='rgba(29,191,150,0.15)';ctx.fillText(LETTERS[writeLetter].ar,canvas.width/2,canvas.height/2);}
+function praiseWrite(){writeDone.add(writeLetter);localStorage.setItem('writeDone',JSON.stringify([...writeDone]));document.getElementById('writePraise').classList.remove('hidden');updateStars(3);renderWriteGrid();setTimeout(()=>document.getElementById('writePraise').classList.add('hidden'),1500);}
 function closeWriteArea(){document.getElementById('writeArea').classList.add('hidden');document.getElementById('writeSelect').classList.remove('hidden');}
 function nextWriteLetter(){openWrite((writeLetter+1)%LETTERS.length);}
 function renderGameModes(){document.getElementById('gameModesGrid').innerHTML=GAME_MODES.map(m=>`<div class="mode-card" onclick="startGame('${m.id}')"><div class="mode-icon">${m.icon}</div><div class="mode-label">${m.label}</div></div>`).join('');}
-function startGame(mode){gameMode=mode;gameQs=[{q:'ب',lbl:'ناو',opts:['باء'],correct:'باء',spk:'باء'}];gameIdx=0;gameScore=0;document.getElementById('gameModes').classList.add('hidden');document.getElementById('gamePlay').classList.remove('hidden');document.getElementById('gameMemory').classList.add('hidden');document.getElementById('gameSpot').classList.add('hidden');document.getElementById('gameEnd').classList.add('hidden');renderQ();}
-function renderQ(){const q=gameQs[0];document.getElementById('qItem').textContent=q.q;document.getElementById('qLabel').textContent=q.lbl;document.getElementById('gameOpts').innerHTML=q.opts.map(opt=>`<button class="game-opt" onclick="checkAnswer(this,'${opt}')">${opt}</button>`).join('');speak(q.spk);}
-function checkAnswer(btn,ans){if(gameAnswered)return;gameAnswered=true;const correct=(ans==='باء');if(correct){gameScore++;document.getElementById('hudScore').textContent=gameScore;confetti();updateStars(2);speak('ئافەرین');}else speak('هەوڵبدەرەوە');document.getElementById('gameFeedback').classList.remove('hidden');document.getElementById('fbTitle').textContent=correct?'ئاپرین!':'هەڵە';}
-function nextQuestion(){showGameEnd();}
-function showGameEnd(){document.getElementById('gamePlay').classList.add('hidden');const endDiv=document.getElementById('gameEnd');endDiv.classList.remove('hidden');document.getElementById('endScore').textContent=`خاڵ: ${gameScore}/1`;document.getElementById('endStars').innerHTML='⭐';updateStars(5);confetti();}
-function resetGame(){document.getElementById('gameEnd').classList.add('hidden');document.getElementById('gamePlay').classList.add('hidden');document.getElementById('gameMemory').classList.add('hidden');document.getElementById('gameSpot').classList.add('hidden');document.getElementById('gameModes').classList.remove('hidden');gameAnswered=false;speechSynthesis.cancel();}
-function renderSurahs(){document.getElementById('surahTabs').innerHTML=SURAHS.map((s,i)=>`<button class="surah-tab" onclick="selectSurah(${i})">${s.name}</button>`).join('');selectSurah(0);}
-function selectSurah(i){document.getElementById('surahContent').innerHTML=`<div class="surah-card"><div class="surah-title-ar">${SURAHS[i].name}</div>${SURAHS[i].verses.map((v,j)=>`<div class="verse-row" onclick="speak('${v}')"><div class="verse-num">${j+1}</div><div class="verse-text">${v}</div></div>`).join('')}</div>`;}
-document.addEventListener('DOMContentLoaded',()=>{updateStars(0);renderLetters();renderHarakat();renderWords();renderWriteGrid();renderGameModes();renderSurahs();});
-window.goPage=goPage; window.showSubTab=showSubTab; window.openLetterModal=openLetterModal; window.closeModal=closeModal; window.speakModal=speakModal; window.openWrite=openWrite; window.clearCanvas=clearCanvas; window.praiseWrite=praiseWrite; window.closeWriteArea=closeWriteArea; window.nextWriteLetter=nextWriteLetter; window.startGame=startGame; window.checkAnswer=checkAnswer; window.nextQuestion=nextQuestion; window.resetGame=resetGame; window.selectSurah=selectSurah; window.speak=speak;
+function startGame(mode){gameMode=mode;document.getElementById('gameModes').classList.add('hidden');document.getElementById('gamePlay').classList.add('hidden');document.getElementById('gameMemory').classList.add('hidden');document.getElementById('gameSpot').classList.add('hidden');document.getElementById('gameDragDrop').classList.add('hidden');document.getElementById('gameEnd').classList.add('hidden');if(mode==='memory'){startMemory();return;}if(mode==='spot'){startSpot();return;}if(mode==='dragdrop'){startDragDrop();return;}gameQs=[];for(let i=0;i<8;i++){let L=LETTERS[i%LETTERS.length];if(mode==='letter-name'){let wrong=LETTERS.filter(l=>l.name!==L.name).slice(0,3).map(l=>l.name);gameQs.push({q:L.ar,opts:[...wrong,L.name],correct:L.name,spk:L.sound});}else if(mode==='name-letter'){let wrong=LETTERS.filter(l=>l.ar!==L.ar).slice(0,3).map(l=>l.ar);gameQs.push({q:L.name,opts:[...wrong,L.ar],correct:L.ar,spk:L.sound});}else if(mode==='harakat'){let H=HARAKAT[i%HARAKAT.length];let wrong=HARAKAT.filter(h=>h.nameAr!==H.nameAr).slice(0,3).map(h=>h.nameAr);gameQs.push({q:H.ex,opts:[...wrong,H.nameAr],correct:H.nameAr,spk:H.spk});}else if(mode==='words'){let W=WORDS[i%WORDS.length];let wrong=WORDS.filter(w=>w.ku!==W.ku).slice(0,3).map(w=>w.ku);gameQs.push({q:W.ar,opts:[...wrong,W.ku],correct:W.ku,spk:W.ar});}}gameIdx=0;gameScore=0;gameAnswered=false;document.getElementById('gamePlay').classList.remove('hidden');renderQ();}
+function renderQ(){if(gameIdx>=gameQs.length){showGameEnd();return;}let q=gameQs[gameIdx];document.getElementById('progBar').style.width=`${(gameIdx/gameQs.length)*100}%`;document.getElementById('hudScore').textContent=gameScore;document.getElementById('qLabel').textContent='کامە؟';document.getElementById('qItem').textContent=q.q;document.getElementById('gameFeedback').classList.add('hidden');document.getElementById('gameOpts').innerHTML=q.opts.map(opt=>`<button class="game-opt" onclick="checkAnswer(this,'${opt.replace(/'/g,"\\'")}')"><span>${opt}</span></button>`).join('');speak(q.spk);}
+function checkAnswer(btn,ans){if(gameAnswered)return;gameAnswered=true;let q=gameQs[gameIdx];let correct=(ans===q.correct);document.querySelectorAll('.game-opt').forEach(b=>{if(b.innerText===q.correct)b.classList.add('correct');});if(correct){gameScore++;updateStars(2);speak(q.correct);}else{speak(q.correct);}document.getElementById('hudScore').textContent=gameScore;document.getElementById('gameFeedback').classList.remove('hidden');}
+function nextQuestion(){gameIdx++;gameAnswered=false;renderQ();}
+function startMemory(){memCards=[];let picks=shuffle(LETTERS).slice(0,6);let deck=[];picks.forEach((l,i)=>{deck.push({id:i,type:'letter',val:l.ar,match:i});deck.push({id:i,type:'name',val:l.name,match:i});});memCards=shuffle(deck);memFlipped=[];memMatched=0;document.getElementById('memoryGrid').innerHTML=memCards.map((c,i)=>`<div class="mem-card" id="mc-${i}" onclick="flipMem(${i})"><div class="mem-back">❓</div><div class="mem-face ${c.type==='letter'?'is-letter':''}">${c.val}</div></div>`).join('');document.getElementById('gameMemory').classList.remove('hidden');}
+function flipMem(i){let card=document.getElementById('mc-'+i);if(card.classList.contains('flipped')||card.classList.contains('matched')||memFlipped.length>=2)return;card.classList.add('flipped');memFlipped.push(i);if(memFlipped.length===2){let [a,b]=memFlipped;if(memCards[a].match===memCards[b].match&&memCards[a].type!==memCards[b].type){document.getElementById('mc-'+a).classList.add('matched');document.getElementById('mc-'+b).classList.add('matched');memMatched++;speak(memCards[a].val);updateStars(2);if(memMatched===picks.length){setTimeout(()=>{document.getElementById('gameMemory').classList.add('hidden');document.getElementById('gameEnd').classList.remove('hidden');},500);}}else{setTimeout(()=>{document.getElementById('mc-'+a).classList.remove('flipped');document.getElementById('mc-'+b).classList.remove('flipped');},600);}memFlipped=[];}}
+function startSpot(){let target=LETTERS[Math.floor(Math.random()*LETTERS.length)];spotTarget=target.ar;spotFound=0;spotTotal=5;spotMistakes=0;let cells=[];for(let i=0;i<spotTotal;i++)cells.push(target.ar);while(cells.length<16){let r=LETTERS[Math.floor(Math.random()*LETTERS.length)];if(r.ar!==target.ar)cells.push(r.ar);}cells=shuffle(cells);document.getElementById('spotTarget').innerHTML=target.ar;document.getElementById('spotGrid').innerHTML=cells.map((c,i)=>`<div class="spot-cell" id="sc-${i}" onclick="tapSpot(this,'${c}')">${c}</div>`).join('');document.getElementById('gameSpot').classList.remove('hidden');speak(target.sound);}
+function tapSpot(el,ch){if(el.classList.contains('found'))return;if(ch===spotTarget){el.classList.add('found');spotFound++;speak(spotTarget);updateStars(1);if(spotFound===spotTotal){setTimeout(()=>{document.getElementById('gameSpot').classList.add('hidden');document.getElementById('gameEnd').classList.remove('hidden');},400);}}else{el.classList.add('wrong-tap');setTimeout(()=>el.classList.remove('wrong-tap'),300);spotMistakes++;}}
+function startDragDrop(){dragLetters=[...LETTERS.slice(0,12)];groupAContent=[];groupBContent=[];currentDragPlayer='A';dragGameActive=true;renderDragDrop();document.getElementById('gameDragDrop').classList.remove('hidden');}
+function renderDragDrop(){let poolDiv=document.getElementById('dragLettersPool');poolDiv.innerHTML=dragLetters.map((l,idx)=>`<div class="drag-letter" draggable="true" data-idx="${idx}" data-letter="${l.ar}" data-name="${l.name}" ondragstart="dragStart(event)" ondragend="dragEnd(event)">${l.ar}</div>`).join('');document.getElementById('groupALetters').innerHTML=groupAContent.map(l=>`<div class="group-letter">${l.ar}</div>`).join('');document.getElementById('groupBLetters').innerHTML=groupBContent.map(l=>`<div class="group-letter">${l.ar}</div>`).join('');document.getElementById('groupAScore').innerText=groupAContent.length;document.getElementById('groupBScore').innerText=groupBContent.length;let groups=document.querySelectorAll('.drag-group');groups.forEach(g=>g.classList.remove('active-group'));document.getElementById(currentDragPlayer==='A'?'groupA':'groupB').classList.add('active-group');document.getElementById('dragWinnerMsg').innerHTML='';if(dragLetters.length===0){let winner=groupAContent.length>groupBContent.length?'گرووپی یەکەم':'گرووپی دووەم';if(groupAContent.length===groupBContent.length)winner='یەکسان';document.getElementById('dragWinnerMsg').innerHTML=`🏆 براوە: ${winner} 🏆`;updateStars(5);}}
+function dragStart(e){if(!dragGameActive)return;let idx=e.target.getAttribute('data-idx');if(idx!==null){e.dataTransfer.setData('text/plain',idx);e.target.classList.add('dragging');}}
+function dragEnd(e){e.target.classList.remove('dragging');}
+function allowDrop(e){e.preventDefault();}
+function dropOnGroup(groupId,e){e.preventDefault();if(!dragGameActive)return;let idx=e.dataTransfer.getData('text/plain');if(idx===null||idx==='')return;let letterIdx=parseInt(idx);if(isNaN(letterIdx)||letterIdx>=dragLetters.length)return;let letterObj=dragLetters[letterIdx];if(currentDragPlayer==='A'){groupAContent.push(letterObj);}else{groupBContent.push(letterObj);}dragLetters.splice(letterIdx,1);currentDragPlayer=(currentDragPlayer==='A'?'B':'A');renderDragDrop();speak(letterObj.sound);updateStars(2);}
+function resetDragGame(){dragLetters=[...LETTERS.slice(0,12)];groupAContent=[];groupBContent=[];currentDragPlayer='A';renderDragDrop();}
+function toggleDragMode(){if(!dragGameActive)return;currentDragPlayer=(currentDragPlayer==='A'?'B':'A');renderDragDrop();speak('گۆڕینی یاریزان');}
+function showGameEnd(){document.getElementById('gamePlay').classList.add('hidden');document.getElementById('gameEnd').classList.remove('hidden');}
+function resetGame(){document.getElementById('gameEnd').classList.add('hidden');document.getElementById('gameModes').classList.remove('hidden');}
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+document.addEventListener('DOMContentLoaded',()=>{updateStars(0);renderLetters();renderHarakat();renderWords();renderSurahs();renderWriteGrid();renderGameModes();for(let i=0;i<50;i++){let s=document.createElement('div');s.className='home-star';s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${2+Math.random()*4}px;height:${2+Math.random()*4}px;`;document.getElementById('starBg').appendChild(s);}});
+window.allowDrop=allowDrop;window.dropOnGroup=dropOnGroup;
 </script>
 </body>
 </html>
